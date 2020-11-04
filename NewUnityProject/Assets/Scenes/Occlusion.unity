@@ -304,8 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusMode: 1
-  m_LightEstimationMode: 0
+  m_FocusMode: -1
+  m_LightEstimationMode: -1
 --- !u!114 &1102090406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,8 +349,6 @@ GameObject:
   - component: {fileID: 1180386974}
   - component: {fileID: 1180386973}
   - component: {fileID: 1180386972}
-  - component: {fileID: 1180386971}
-  - component: {fileID: 1180386970}
   m_Layer: 0
   m_Name: AR Session
   m_TagString: Untagged
@@ -358,33 +356,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1180386970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180386969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 1603114247}
-  m_DetectionMode: -1
---- !u!114 &1180386971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180386969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520bb47c46cf8624fafb307b7d1b862a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
 --- !u!114 &1180386972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +408,7 @@ GameObject:
   - component: {fileID: 1447412420}
   - component: {fileID: 1447412423}
   - component: {fileID: 1447412422}
+  - component: {fileID: 1447412424}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -484,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d921c7bf83c35cc42ab9ce36b277609b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectToCreate: {fileID: 1076866911682903070, guid: 50cf0a343bc698d4398bba377db95210,
+  gameObjectToCreate: {fileID: 4477224757153079854, guid: b9ee435372d51e1429c657a25098f300,
     type: 3}
 --- !u!114 &1447412423
 MonoBehaviour:
@@ -498,83 +470,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1603114247 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1111123408835602848, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-    type: 3}
-  m_PrefabInstance: {fileID: 1111123407586065575}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1111123407586065575
-PrefabInstance:
+--- !u!114 &1447412424
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1111123408835602848, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_Name
-      value: ARPlane
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602848, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.5016313
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.7325501
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.5824634
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111123408835602857, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447412419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlanePrefab: {fileID: 1111123408835602848, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
+    type: 3}
+  m_DetectionMode: -1
