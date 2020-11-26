@@ -9,29 +9,46 @@ using System;
 
 public class ARTapToCreateWithIndicator : MonoBehaviour
 {
-    public GameObject objectToPlace;
+    public GameObject gameBase;
     public GameObject placementIndicator;
+    public List<GameObject> cubes;
+    public GameObject smallIndicator;
 
     private ARRaycastManager _arRayCastManager;
     private ARSessionOrigin _arOrigin;
-    private Pose placementPose;
-    private bool placementPoseIsValid = false;
-    private GameObject spwanedObject;
+    private Pose indicator;
+    private bool indicatorIsValid = false;
+    private int tabCounter = 0;
+    private int listSize;
+    private float halfHeight;
+    private float halfWidth;
 
-    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    static List<ARRaycastHit> planeHits = new List<ARRaycastHit>();
+    static RaycastHit gameObjectHit = new RaycastHit();
 
     void Start()
     {
         _arOrigin = FindObjectOfType<ARSessionOrigin>();
         _arRayCastManager = GetComponent<ARRaycastManager>();
+        listSize = cubes.Capacity;
+        tabCounter = 0;
+        Debug.Log("Hello World");
+        
+        halfHeight = Screen.height * 0.5f;
+        halfWidth = Screen.width * 0.5f;
+        Debug.Log("halfHeight: " + halfHeight.ToString());
+        Debug.Log("halfWidth: " + halfWidth.ToString());
+
+        placementIndicator.SetActive(false);
+        smallIndicator.SetActive(false);
     }
 
     void Update()
     {
-        UpdatePlacementPose();
-        UpdatePlacementIndicator();
+        UpdateIndicatorPose();
+        UpdateIndicator();
 
-        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (indicatorIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             PlaceObject();
         }
@@ -39,43 +56,72 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
 
     private void PlaceObject()
     {
-        if (spwanedObject == null)
+        if (tabCounter == 0)
         {
-            spwanedObject = Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
+            Instantiate(gameBase, indicator.position, indicator.rotation);
+            tabCounter += 1;
         }
-        else{
-            spwanedObject.transform.position = placementPose.position;
-            spwanedObject.transform.rotation = placementPose.rotation;
+        else
+        {
+            Instantiate(cubes[0], new Vector3(indicator.position.x, indicator.position.y + 20, indicator.position.z), indicator.rotation);
+            tabCounter += 1;
         }
     }
 
-    private void UpdatePlacementIndicator()
+    private void UpdateIndicator()
     {
-        if (placementPoseIsValid)
+        if (indicatorIsValid && tabCounter == 0)
         {
+            smallIndicator.SetActive(false);
             placementIndicator.SetActive(true);
-            placementIndicator.transform.SetPositionAndRotation(placementPose.position, placementPose.rotation);
+            placementIndicator.transform.SetPositionAndRotation(indicator.position, indicator.rotation);
+        }
+        else if (indicatorIsValid && tabCounter >= 1)
+        {
+            placementIndicator.SetActive(false);
+            smallIndicator.SetActive(true);
+            smallIndicator.transform.SetPositionAndRotation(indicator.position, indicator.rotation);
         }
         else
         {
             placementIndicator.SetActive(false);
+            smallIndicator.SetActive(false);
         }
     }
 
-    private void UpdatePlacementPose()
+    private void UpdateIndicatorPose()
     {
-        var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
-        // var hits = new List<ARRaycastHit>();
-        _arRayCastManager.Raycast(screenCenter, hits, TrackableType.Planes);
-
-        placementPoseIsValid = hits.Count > 0;
-        if (placementPoseIsValid)
+        var camera = Camera.current;
+        var screenCenter = camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        var Ray = camera.ScreenPointToRay(new Vector3(halfWidth, halfHeight));
+        // var planeHits = new List<ARRaycastHit>();
+        if (tabCounter < 1)
         {
-            placementPose = hits[0].pose;
+            _arRayCastManager.Raycast(screenCenter, planeHits, TrackableType.Planes);
 
-            var cameraForward = Camera.current.transform.forward;
-            var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
-            placementPose.rotation = Quaternion.LookRotation(cameraBearing);
+            indicatorIsValid = planeHits.Count > 0;
+            if (indicatorIsValid)
+            {
+                indicator = planeHits[0].pose;
+
+                var cameraForward = Camera.current.transform.forward;
+                var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
+                indicator.rotation = Quaternion.LookRotation(cameraBearing);
+            }
+        }
+        else
+        {
+            if (Physics.Raycast(Ray, out gameObjectHit, 200f))
+            {
+                // Debug.DrawRay(Ray.po, Color.yellow);
+                // if (gameObjectHit.transform.name.Contains("GameBase")){}
+                indicator.position = gameObjectHit.point;
+                var cameraForward = Camera.current.transform.forward;
+                var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
+                indicator.rotation = Quaternion.LookRotation(cameraBearing);
+                // indicator.rotation = Quaternion.LookRotation(gameObjectHit.normal);
+            }
+
         }
     }
 }

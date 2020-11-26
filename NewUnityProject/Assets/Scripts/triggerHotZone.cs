@@ -10,7 +10,7 @@ public class triggerHotZone : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         rend = GetComponent<Renderer>();
         rend.sharedMaterial = materialSafe;
     }
@@ -24,6 +24,11 @@ public class triggerHotZone : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Object Enter trigger");
-        rend.sharedMaterial = materialOut;
+        if (other.name == "Cube")
+        {
+            Debug.Log("LOST!!");
+            Debug.Log("Name: "+other.name);
+            rend.sharedMaterial = materialOut;
+        }
     }
 }

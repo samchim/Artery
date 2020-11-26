@@ -41,6 +41,7 @@
      <Compile Include="Assets\Scripts\triggerHotZone.cs" />
      <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Scripts\ARTapToCreateWithIndicator.cs" />
+     <Compile Include="Assets\Scripts\VolumeListenerGO.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
