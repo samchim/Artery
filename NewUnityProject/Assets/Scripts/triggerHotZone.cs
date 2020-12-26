@@ -24,9 +24,8 @@ public class triggerHotZone : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Object Enter trigger");
-        if (other.name == "Cube")
+        if (other.name != "BaseCube")
         {
-            Debug.Log("LOST!!");
             Debug.Log("Name: "+other.name);
             rend.sharedMaterial = materialOut;
         }

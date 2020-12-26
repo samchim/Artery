@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "a3511944",
     "m_SelectedPackage": {
         "deviceId": "a3511944",
-        "name": "com.DefaultCompany.ARTestPoject",
-        "processId": 22688,
+        "name": "com.manomotion.arfoundationssdkceexample",
+        "processId": 17730,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -91,6 +91,90 @@
             "name": "com.DefaultCompany.ARTestPoject",
             "processId": 22688,
             "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.DefaultCompany.ARTestPoject",
+            "processId": 24640,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 7284,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 5499,
+            "exited": true
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 23319,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 28614,
+            "exited": true
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 30806,
+            "exited": true
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 32568,
+            "exited": true
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 4188,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 5689,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 8214,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 10236,
+            "exited": true
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 14224,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 16464,
+            "exited": true
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 17730,
+            "exited": false
         }
     ],
     "m_Tags": {
@@ -143,7 +227,7 @@
         "MemoryGroup": 1,
         "Behavior": 1
     },
-    "m_Filter": "cube",
+    "m_Filter": ": ",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }
