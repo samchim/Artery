@@ -6,7 +6,9 @@ public class ARCubeInteraction : MonoBehaviour
 {
     private ManoGestureContinuous grab;
     private ManoGestureContinuous pinch;
+    private ManoGestureContinuous openPinch;
     private ManoGestureTrigger click;
+    private ManoGestureTrigger grabTrigger;
 
     [SerializeField]
     private Material[] arCubeMaterial;
@@ -25,10 +27,17 @@ public class ARCubeInteraction : MonoBehaviour
     {
         grab = ManoGestureContinuous.CLOSED_HAND_GESTURE;
         pinch = ManoGestureContinuous.HOLD_GESTURE;
+        openPinch = ManoGestureContinuous.OPEN_PINCH_GESTURE;
         click = ManoGestureTrigger.CLICK;
+        grabTrigger = ManoGestureTrigger.GRAB_GESTURE;
         cubeRenderer = GetComponent<Renderer>();
         cubeRenderer.sharedMaterial = arCubeMaterial[0];
         cubeRenderer.material = arCubeMaterial[0];
+    }
+
+    void Update()
+    {
+        Debug.Log("Gravity: " + gameObject.GetComponent<Rigidbody>().useGravity.ToString() + " Kinematic :" + gameObject.GetComponent<Rigidbody>().isKinematic.ToString());
     }
 
     /// <summary>
@@ -37,9 +46,28 @@ public class ARCubeInteraction : MonoBehaviour
     /// <param name="other">The collider that stays</param>
     private void OnTriggerStay(Collider other)
     {
-        MoveWhenGrab(other);
-        RotateWhenHolding(other);
-        SpawnWhenClicking(other);
+        if (other.gameObject.tag == handTag)
+        {
+            if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_trigger == grabTrigger)
+            {
+                Debug.Log("grabTrigger");
+                if (transform.parent == null)
+                {
+                    transform.parent = other.gameObject.transform;
+                    gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                }
+                else
+                {
+                    FreeFall();                  
+                }
+            }
+            else if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_continuous == pinch)
+            {
+                transform.Rotate(Vector3.up * Time.deltaTime * 50, Space.World);
+            }
+            // else FreeFall();
+            SpawnWhenClicking(other);
+        }
     }
 
     /// <summary>
@@ -48,17 +76,17 @@ public class ARCubeInteraction : MonoBehaviour
     /// </summary>
     private void MoveWhenGrab(Collider other)
     {
-        if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_continuous == grab)
-        {
-            transform.parent = other.gameObject.transform;
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
-        }
+        transform.parent = other.gameObject.transform;
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
+    }
 
-        else
-        {
-            transform.parent = null;
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
-        }
+    /// <summary>
+    /// If open pinch is performed while hand collider is in the cube.
+    /// The cube will float.
+    /// </summary>
+    private void FloatWhenOpenPinch(Collider other)
+    {
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
     }
 
     /// <summary>
@@ -67,10 +95,24 @@ public class ARCubeInteraction : MonoBehaviour
     /// </summary>
     private void RotateWhenHolding(Collider other)
     {
-        if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_continuous == pinch)
+        if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_continuous == openPinch)
         {
-            transform.Rotate(Vector3.up * Time.deltaTime * 50, Space.World);
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
+        // else if ()
+        // {
+        //     transform.Rotate(Vector3.up * Time.deltaTime * 50, Space.World);
+        // }
+    }
+
+    /// <summary>
+    /// If nothing is performed while hand collider is in the cube.
+    /// The cube will free fall.
+    /// </summary>
+    private void FreeFall()
+    {
+        transform.parent = null;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     /// <summary>
@@ -105,5 +147,6 @@ public class ARCubeInteraction : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         cubeRenderer.sharedMaterial = arCubeMaterial[0];
+        FreeFall();
     }
 }
