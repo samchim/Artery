@@ -14,6 +14,9 @@ public class ARCubeInteraction : MonoBehaviour
     private Material[] arCubeMaterial;
     [SerializeField]
     private GameObject smallCube;
+    private GameObject handCollider;
+
+    private int actionCoolDown;
 
     private string handTag = "Player";
     private Renderer cubeRenderer;
@@ -33,11 +36,31 @@ public class ARCubeInteraction : MonoBehaviour
         cubeRenderer = GetComponent<Renderer>();
         cubeRenderer.sharedMaterial = arCubeMaterial[0];
         cubeRenderer.material = arCubeMaterial[0];
+        handCollider = GameObject.FindGameObjectsWithTag("Player")[0];
+        actionCoolDown = 0;
+        FreeFall();
     }
 
     void Update()
     {
         Debug.Log("Gravity: " + gameObject.GetComponent<Rigidbody>().useGravity.ToString() + " Kinematic :" + gameObject.GetComponent<Rigidbody>().isKinematic.ToString());
+        if (transform.parent == null)
+        {
+            Debug.Log("transform.parent: Null");
+        }
+        else
+        {
+            Debug.Log("transform.parent: hand");
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (actionCoolDown > 0)
+        {
+            actionCoolDown -= 1;
+            Debug.Log("Cool Down: " + actionCoolDown.ToString());
+        }
     }
 
     /// <summary>
@@ -48,45 +71,28 @@ public class ARCubeInteraction : MonoBehaviour
     {
         if (other.gameObject.tag == handTag)
         {
-            if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_trigger == grabTrigger)
+            if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_trigger == grabTrigger && actionCoolDown == 0)
             {
-                Debug.Log("grabTrigger");
+                Debug.Log("Action: grabTrigger");
                 if (transform.parent == null)
                 {
-                    transform.parent = other.gameObject.transform;
+                    Debug.Log("Action: stick with hand");
+                    transform.parent = handCollider.transform;
                     gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 }
                 else
                 {
-                    FreeFall();                  
+                    Debug.Log("Action: FreeFall from grab");
+                    FreeFall();
                 }
+                actionCoolDown = 50;
             }
             else if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_continuous == pinch)
             {
                 transform.Rotate(Vector3.up * Time.deltaTime * 50, Space.World);
             }
-            // else FreeFall();
-            SpawnWhenClicking(other);
+            // SpawnWhenClicking(other);
         }
-    }
-
-    /// <summary>
-    /// If grab is performed while hand collider is in the cube.
-    /// The cube will follow the hand.
-    /// </summary>
-    private void MoveWhenGrab(Collider other)
-    {
-        transform.parent = other.gameObject.transform;
-        gameObject.GetComponent<Rigidbody>().useGravity = false;
-    }
-
-    /// <summary>
-    /// If open pinch is performed while hand collider is in the cube.
-    /// The cube will float.
-    /// </summary>
-    private void FloatWhenOpenPinch(Collider other)
-    {
-        gameObject.GetComponent<Rigidbody>().useGravity = false;
     }
 
     /// <summary>
@@ -146,7 +152,36 @@ public class ARCubeInteraction : MonoBehaviour
     /// <param name="other">The collider that exits</param>
     private void OnTriggerExit(Collider other)
     {
-        cubeRenderer.sharedMaterial = arCubeMaterial[0];
-        FreeFall();
+        if (other.gameObject.tag == handTag)
+        {
+            cubeRenderer.sharedMaterial = arCubeMaterial[0];
+            if (actionCoolDown == 0)
+            {
+                Debug.Log("Action: FreeFall from exit");
+                FreeFall();
+            }
+        }
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+/// If grab is performed while hand collider is in the cube.
+/// The cube will follow the hand.
+/// </summary>
+// private void MoveWhenGrab(Collider other)
+// {
+//     transform.parent = other.gameObject.transform;
+//     gameObject.GetComponent<Rigidbody>().useGravity = false;
+// }
+
+/// <summary>
+/// If open pinch is performed while hand collider is in the cube.
+/// The cube will float.
+/// </summary>
+// private void FloatWhenOpenPinch(Collider other)
+// {
+//     gameObject.GetComponent<Rigidbody>().useGravity = false;
+// }

@@ -3,286 +3,94 @@
     "m_SelectedPackage": {
         "deviceId": "a3511944",
         "name": "com.manomotion.arfoundationssdkceexample",
-        "processId": 20795,
-        "exited": true
+        "processId": 17951,
+        "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 7362,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 17229,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 22134,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 24568,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 26960,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 31496,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 4681,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 9080,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 11833,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 13960,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 17796,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 18949,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 19930,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 22688,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.DefaultCompany.ARTestPoject",
-            "processId": 24640,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 7284,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 5499,
+            "processId": 9544,
             "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 23319,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 28614,
+            "processId": 13256,
             "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 30806,
+            "processId": 18432,
             "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 32568,
+            "processId": 20786,
             "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 4188,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 5689,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 8214,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 10236,
+            "processId": 24121,
             "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 14224,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 16464,
+            "processId": 28861,
             "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 17730,
+            "processId": 31298,
             "exited": false
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 23277,
+            "processId": 2189,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 6350,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 8639,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 10294,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 12150,
             "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 31971,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 21959,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 29575,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 1682,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 15522,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 22691,
+            "processId": 14060,
             "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 23570,
+            "processId": 17951,
             "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 26411,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 30503,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 1671,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 3560,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 8040,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 8805,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 9984,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 13780,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 15691,
-            "exited": false
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 20795,
-            "exited": true
         }
     ],
     "m_Tags": {
@@ -335,7 +143,7 @@
         "MemoryGroup": 1,
         "Behavior": 1
     },
-    "m_Filter": "Gravity",
+    "m_Filter": "trigger",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }
