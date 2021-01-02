@@ -96,6 +96,9 @@
  <Reference Include="Unity.XR.ARFoundation">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.EditorCoroutines.Editor">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -113,6 +116,9 @@
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.SpatialTracking">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
@@ -134,9 +140,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

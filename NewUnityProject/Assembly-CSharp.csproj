@@ -55,12 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\moveRelativeToCamera.cs" />
-     <Compile Include="Assets\Scripts\ARTapToCreateWithIndicator.cs" />
-     <Compile Include="Assets\Scripts\moveByDrag.cs" />
-     <Compile Include="Assets\Scripts\VolumeListenerGO.cs" />
-     <Compile Include="Assets\Scripts\triggerHotZone.cs" />
-     <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\VisualizationInfo.cs" />
      <Compile Include="Assets\Manomotion\Scripts\ManoVisualization\ManoVisualization.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\UIIconBehavior.cs" />
@@ -84,6 +78,7 @@
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\MenuButton.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Instructions\GestureInstruction.cs" />
      <Compile Include="Assets\Manomotion\UIBlurEffect\Scripts\Grayscale.cs" />
+     <Compile Include="Assets\Scripts\moveRelativeToCamera.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\CubeSpawn.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\IconMainMenu.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\Session.cs" />
@@ -93,6 +88,7 @@
      <Compile Include="Assets\Manomotion\ApplicationIntro\Instructions\Instruction.cs" />
      <Compile Include="Assets\Manomotion\Examples\Spooky\Scripts\ExampleSpooky.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Gizmos\TriggerGizmo.cs" />
+     <Compile Include="Assets\Scripts\ARTapToCreateWithIndicator.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Gizmos\GizmoManager.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\InputManagerPhoneCamera.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -102,6 +98,7 @@
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\CubeGameManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\ManoMotionFrame.cs" />
+     <Compile Include="Assets\Scripts\moveByDrag.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Scripts\HowToAnimations.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\GestureInfo.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
@@ -138,13 +135,16 @@
      <Compile Include="Assets\Manomotion\UIBlurEffect\Scripts\BWEffect.cs" />
      <Compile Include="Assets\ManoMotion ARFoundation\Examples\Inetraction\Scripts\HandCollider.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
+     <Compile Include="Assets\Scripts\VolumeListenerGO.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+     <Compile Include="Assets\Scripts\triggerHotZone.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Scripts\HowToInstructor.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Scripts\RunTimeApplication.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\HandInfo.cs" />
+     <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\SpawnPoint.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -205,6 +205,9 @@
  <Reference Include="Unity.XR.ARFoundation">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.EditorCoroutines.Editor">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -222,6 +225,9 @@
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.SpatialTracking">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
@@ -243,9 +249,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

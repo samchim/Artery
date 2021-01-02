@@ -16,6 +16,8 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
 
     private ARRaycastManager _arRayCastManager;
     private ARSessionOrigin _arOrigin;
+    private ARPlaneManager _arPlaneManger;
+    private GameObject _arPlane;
     private Pose indicator;
     private bool indicatorIsValid = false;
     private int tabCounter = 0;
@@ -30,6 +32,8 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
     {
         _arOrigin = FindObjectOfType<ARSessionOrigin>();
         _arRayCastManager = GetComponent<ARRaycastManager>();
+        _arPlaneManger = GetComponent<ARPlaneManager>();
+        _arPlane = GameObject.FindGameObjectsWithTag("ARPlane")[0];
         listSize = cubes.Capacity;
         tabCounter = 0;
         Debug.Log("Hello World");
@@ -59,13 +63,15 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
         if (tabCounter == 0)
         {
             Instantiate(gameBase, indicator.position, indicator.rotation);
-            tabCounter += 1;
+            tabCounter += 1;    
+            _arPlaneManger.enabled = false;
+            _arPlane.SetActive(false);
         }
-        else
-        {
-            Instantiate(cubes[0], new Vector3(indicator.position.x, indicator.position.y + 20, indicator.position.z), indicator.rotation);
-            tabCounter += 1;
-        }
+        // else
+        // {
+        //     Instantiate(cubes[0], new Vector3(indicator.position.x, indicator.position.y + 20, indicator.position.z), indicator.rotation);
+        //     tabCounter += 1;
+        // }
     }
 
     private void UpdateIndicator()
@@ -76,12 +82,12 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
             placementIndicator.SetActive(true);
             placementIndicator.transform.SetPositionAndRotation(indicator.position, indicator.rotation);
         }
-        else if (indicatorIsValid && tabCounter >= 1)
-        {
-            placementIndicator.SetActive(false);
-            smallIndicator.SetActive(true);
-            smallIndicator.transform.SetPositionAndRotation(indicator.position, indicator.rotation);
-        }
+        // else if (indicatorIsValid && tabCounter >= 1)
+        // {
+        //     placementIndicator.SetActive(false);
+        //     smallIndicator.SetActive(true);
+        //     smallIndicator.transform.SetPositionAndRotation(indicator.position, indicator.rotation);
+        // }
         else
         {
             placementIndicator.SetActive(false);

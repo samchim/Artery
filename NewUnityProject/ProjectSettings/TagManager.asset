@@ -6,6 +6,7 @@ TagManager:
   tags:
   - baseSDK
   - GameBase
+  - ARPlane
   layers:
   - Default
   - TransparentFX
