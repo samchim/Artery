@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "a3511944",
         "name": "com.manomotion.arfoundationssdkceexample",
-        "processId": 8698,
+        "processId": 28473,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -133,6 +133,48 @@
             "name": "com.manomotion.arfoundationssdkceexample",
             "processId": 8698,
             "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 11125,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 14123,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 18536,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 21451,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 23607,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 25648,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 28473,
+            "exited": false
         }
     ],
     "m_Tags": {
@@ -185,7 +227,7 @@
         "MemoryGroup": 1,
         "Behavior": 1
     },
-    "m_Filter": "trigger",
+    "m_Filter": "Instantiate gameBase",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }

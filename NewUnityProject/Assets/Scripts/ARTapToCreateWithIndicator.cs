@@ -11,13 +11,15 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
 {
     public GameObject gameBase;
     public GameObject placementIndicator;
-    public List<GameObject> cubes;
-    public GameObject smallIndicator;
+    // public GameObject placementIndicatorSrc;
+    // public List<GameObject> cubes;
+    // public GameObject smallIndicator;
 
+    // private GameObject placementIndicator;
     private ARRaycastManager _arRayCastManager;
     private ARSessionOrigin _arOrigin;
     private ARPlaneManager _arPlaneManger;
-    private GameObject _arPlane;
+    private GameObject[] _arPlanes;
     private Pose indicator;
     private bool indicatorIsValid = false;
     private int tabCounter = 0;
@@ -33,18 +35,17 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
         _arOrigin = FindObjectOfType<ARSessionOrigin>();
         _arRayCastManager = GetComponent<ARRaycastManager>();
         _arPlaneManger = GetComponent<ARPlaneManager>();
-        _arPlane = GameObject.FindGameObjectsWithTag("ARPlane")[0];
-        listSize = cubes.Capacity;
+        // listSize = cubes.Capacity;
         tabCounter = 0;
-        Debug.Log("Hello World");
         
         halfHeight = Screen.height * 0.5f;
         halfWidth = Screen.width * 0.5f;
         Debug.Log("halfHeight: " + halfHeight.ToString());
         Debug.Log("halfWidth: " + halfWidth.ToString());
 
+        // placementIndicator = Instantiate(placementIndicator, new Vector3(0,0,0), new Quaternion(0,0,0,1));
         placementIndicator.SetActive(false);
-        smallIndicator.SetActive(false);
+        // smallIndicator.SetActive(false);
     }
 
     void Update()
@@ -62,10 +63,14 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
     {
         if (tabCounter == 0)
         {
+            Debug.Log("Instantiate gameBase");
             Instantiate(gameBase, indicator.position, indicator.rotation);
             tabCounter += 1;    
             _arPlaneManger.enabled = false;
-            _arPlane.SetActive(false);
+            _arPlanes = GameObject.FindGameObjectsWithTag("ARPlane");
+            foreach (GameObject ARPlane in _arPlanes) {
+                ARPlane.SetActive(false);
+            }
         }
         // else
         // {
@@ -78,7 +83,8 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
     {
         if (indicatorIsValid && tabCounter == 0)
         {
-            smallIndicator.SetActive(false);
+            Debug.Log("placementIndicator is shown");
+            // smallIndicator.SetActive(false);
             placementIndicator.SetActive(true);
             placementIndicator.transform.SetPositionAndRotation(indicator.position, indicator.rotation);
         }
@@ -91,7 +97,7 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
         else
         {
             placementIndicator.SetActive(false);
-            smallIndicator.SetActive(false);
+            // smallIndicator.SetActive(false);
         }
     }
 
@@ -115,19 +121,19 @@ public class ARTapToCreateWithIndicator : MonoBehaviour
                 indicator.rotation = Quaternion.LookRotation(cameraBearing);
             }
         }
-        else
-        {
-            if (Physics.Raycast(Ray, out gameObjectHit, 200f))
-            {
-                // Debug.DrawRay(Ray.po, Color.yellow);
-                // if (gameObjectHit.transform.name.Contains("GameBase")){}
-                indicator.position = gameObjectHit.point;
-                var cameraForward = Camera.current.transform.forward;
-                var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
-                indicator.rotation = Quaternion.LookRotation(cameraBearing);
-                // indicator.rotation = Quaternion.LookRotation(gameObjectHit.normal);
-            }
+        // else
+        // {
+        //     if (Physics.Raycast(Ray, out gameObjectHit, 200f))
+        //     {
+        //         // Debug.DrawRay(Ray.po, Color.yellow);
+        //         // if (gameObjectHit.transform.name.Contains("GameBase")){}
+        //         indicator.position = gameObjectHit.point;
+        //         var cameraForward = Camera.current.transform.forward;
+        //         var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
+        //         indicator.rotation = Quaternion.LookRotation(cameraBearing);
+        //         // indicator.rotation = Quaternion.LookRotation(gameObjectHit.normal);
+        //     }
 
-        }
+        // }
     }
 }
