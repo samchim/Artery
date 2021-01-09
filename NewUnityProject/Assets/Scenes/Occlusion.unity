@@ -325,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AttemptUpdate: 1
   m_MatchFrameRate: 1
+  m_TrackingMode: 2
 --- !u!4 &1180386974
 Transform:
   m_ObjectHideFlags: 0

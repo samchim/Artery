@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class triggerHotZone : MonoBehaviour
 {
     public Material materialSafe;
     public Material materialOut;
-    private List<GameObject> touched;
+
     private int touchedCount;
     Renderer rend;
 
@@ -21,15 +22,15 @@ public class triggerHotZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
+
 
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Object Enter trigger: " + other.name);
         if (other.tag != "GameBase" && other.tag != "player")
         {
-            // touched.Add(other.gameObject);
             touchedCount += 1;
             rend.sharedMaterial = materialOut;
         }
@@ -38,16 +39,18 @@ public class triggerHotZone : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         Debug.Log("Object Exit trigger: " + other.name);
-        // touched.Remove(other.gameObject);
-        // if (touched.FindAll(collided => (collided.tag != "BaseCube" && collided.tag != "player")).Count == 0){
-        //     rend.sharedMaterial = materialSafe;
-        // }
         if (other.tag != "GameBase" && other.tag != "player")
         {
             touchedCount -= 1;
         }
-        if (touchedCount == 0) {
+        if (touchedCount == 0)
+        {
             rend.sharedMaterial = materialSafe;
         }
+    }
+
+    public int getTouchedCount()
+    {
+        return touchedCount;
     }
 }

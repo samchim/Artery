@@ -335,6 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialSafe: {fileID: 2100000, guid: 3d629740b1467694f805bee3802feba1, type: 2}
   materialOut: {fileID: 2100000, guid: 2ed1fe9fcaf059049b188f73c75c2684, type: 2}
+  winningConiditionSecond: 3
+  winningCountDown: 0
 --- !u!1001 &5890746581047527601
 PrefabInstance:
   m_ObjectHideFlags: 0

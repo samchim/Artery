@@ -43,7 +43,7 @@ public class ARCubeInteraction : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Gravity: " + gameObject.GetComponent<Rigidbody>().useGravity.ToString() + " Kinematic :" + gameObject.GetComponent<Rigidbody>().isKinematic.ToString());
+        Debug.Log("Gravity: " + gameObject.GetComponent<Rigidbody>().useGravity.ToString() + ", Kinematic :" + gameObject.GetComponent<Rigidbody>().isKinematic.ToString());
         if (transform.parent == null)
         {
             Debug.Log("transform.parent: Null");
