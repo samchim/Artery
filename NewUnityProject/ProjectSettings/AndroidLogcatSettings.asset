@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "a3511944",
         "name": "com.manomotion.arfoundationssdkceexample",
-        "processId": 18931,
+        "processId": 11867,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -127,6 +127,24 @@
             "name": "com.manomotion.arfoundationssdkceexample",
             "processId": 18931,
             "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 20806,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 23664,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 11867,
+            "exited": false
         }
     ],
     "m_Tags": {
@@ -179,7 +197,7 @@
         "MemoryGroup": 1,
         "Behavior": 1
     },
-    "m_Filter": "winningCountDown: ",
+    "m_Filter": "winningCountDown:",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }

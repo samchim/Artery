@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class winningCountDown : MonoBehaviour
 {
-    public int winningConditionSecond;
+    public int winningConditionSecond; 
     public GameObject hotZoneTrigger;
     public GameObject handCollider;
     public Text winningCountDownDisplay;
