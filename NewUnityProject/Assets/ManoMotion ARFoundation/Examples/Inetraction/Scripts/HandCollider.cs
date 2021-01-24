@@ -23,6 +23,7 @@ public class HandCollider : MonoBehaviour
 
     private TrackingInfo tracking;
     public Vector3 currentPosition;
+    public Vector3 smoothedPostion;
     private List<Collider> collidings;
     private Queue<Vector3> smoothingBuffer;
 
@@ -57,7 +58,11 @@ public class HandCollider : MonoBehaviour
         tracking = ManomotionManager.Instance.Hand_infos[0].hand_info.tracking_info;
         currentPosition = Camera.main.ViewportToWorldPoint(new Vector3(tracking.palm_center.x, tracking.palm_center.y, tracking.depth_estimation));
         // transform.position = currentPosition;
-        transform.position = SmoothingPostion(currentPosition);
+        smoothedPostion = SmoothingPostion(currentPosition);
+        transform.position = smoothedPostion;
+        Debug.Log("Both Before and After: (" + currentPosition.x.ToString()+", "+ currentPosition.y.ToString() +", "+ currentPosition.z.ToString() + "), (" + smoothedPostion.x.ToString()+", "+ smoothedPostion.y.ToString() +", "+ smoothedPostion.z.ToString() + ")");
+        Debug.Log("Before Only: " +currentPosition.x.ToString()+", "+ currentPosition.y.ToString() +", "+ currentPosition.z.ToString() + ")");
+        Debug.Log("After Only: " +smoothedPostion.x.ToString()+", "+ smoothedPostion.y.ToString() +", "+ smoothedPostion.z.ToString() + ")");
     }
     
     Vector3 SmoothingPostion(Vector3 current)
