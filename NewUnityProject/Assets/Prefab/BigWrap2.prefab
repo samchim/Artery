@@ -247,6 +247,20 @@ MonoBehaviour:
   hotZoneTrigger: {fileID: 8182562433687115944}
   handCollider: {fileID: 8341957657390629901}
   winningCountDownDisplay: {fileID: 6936139851910212006}
+--- !u!114 &3137315201764719623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8182562433687115944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c0439ea11f9ff409c1dc3dab5ead6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialSafe: {fileID: 2100000, guid: 3d629740b1467694f805bee3802feba1, type: 2}
+  materialOut: {fileID: 2100000, guid: 2ed1fe9fcaf059049b188f73c75c2684, type: 2}
 --- !u!1001 &84593641891762084
 PrefabInstance:
   m_ObjectHideFlags: 0
