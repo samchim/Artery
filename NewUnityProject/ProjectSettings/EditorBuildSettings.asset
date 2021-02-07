@@ -17,10 +17,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/ManoMotion ARFoundation/Examples/Inetraction/Example Interaction.unity
     guid: 27f43207c9bffcb49bcf1d568179f758
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Manomotion.unity
     guid: ca75a58c507be564ba01724ecace6d78
+  - enabled: 1
+    path: Assets/Samples/ARCore Extensions/1.22.0/Cloud Anchor Sample/Scenes/CloudAnchors.unity
+    guid: 83fb41cc294e74bdea57537befa00ffc
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a6d49f8378c267e4f8854c0045109fa9,
+      type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 116ed238ce8b3ae41adc17161ed29d49,
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: c0e20ab8c9093d94083762212c11cf64,

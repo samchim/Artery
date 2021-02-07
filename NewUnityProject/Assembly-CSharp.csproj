@@ -128,6 +128,14 @@
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\HandInfo.cs" />
      <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\SpawnPoint.cs" />
+     <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\NetworkManagerUIController.cs" />
+     <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\SafeAreaScaler.cs" />
+     <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\LocalPlayerController.cs" />
+     <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\AnchorController.cs" />
+     <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\StarController.cs" />
+     <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\CloudAnchorsExampleController.cs" />
+     <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\CloudAnchorsNetworkManager.cs" />
+     <Compile Include="Assets\Scripts\ARCloudAnchorManager.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
@@ -756,6 +764,27 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.XR.ARCoreExtensions">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Google.XR.ARCoreExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.XR.ARCoreExtensions.Editor">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Google.XR.ARCoreExtensions.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.Oculus">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.Oculus.Editor">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
