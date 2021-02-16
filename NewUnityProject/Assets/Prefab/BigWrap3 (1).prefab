@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &6072162608562033395
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77772621759594223}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8224007185199874504, guid: 2d421ff9222314288b0c580d4af8959c, type: 3}
 --- !u!114 &3665891475988726155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,20 +31,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7b565b5add381ee45b035b89477b2524, type: 2}
   smallCube: {fileID: 1382912391640834397, guid: 9d24fc21ab7fdc044b5f72e5d5d02eea,
     type: 3}
---- !u!64 &6072162608562033395
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77772621759594223}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8224007185199874504, guid: 2d421ff9222314288b0c580d4af8959c, type: 3}
 --- !u!114 &6973432247413393587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothingFrame: 12
+  movingAverage: 1
+  linearWeightedMovingAverage: 0
   currentPosition: {x: 0, y: 0, z: 0}
   smoothedPostion: {x: 0, y: 0, z: 0}
 --- !u!1 &619431498296614941
@@ -338,6 +340,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!64 &6865283745495061890
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8636711878181141466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8224007185199874504, guid: 2d421ff9222314288b0c580d4af8959c, type: 3}
 --- !u!114 &3576132808360467000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,20 +371,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7b565b5add381ee45b035b89477b2524, type: 2}
   smallCube: {fileID: 1382912391640834397, guid: 9d24fc21ab7fdc044b5f72e5d5d02eea,
     type: 3}
---- !u!64 &6865283745495061890
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636711878181141466}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8224007185199874504, guid: 2d421ff9222314288b0c580d4af8959c, type: 3}
 --- !u!1 &8636788207605695317
 GameObject:
   m_ObjectHideFlags: 0
