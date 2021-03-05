@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.google.ar.core.arfoundation.extensions": {
-      "version": "file:D:/1HKU/Acadamic/FYP/arcore-unity-extensions-1.22.0.tgz",
+      "version": "file:D:/1HKU/Acadamic/FYP/AR Test_old/arcore-unity-extensions-1.22.0/package",
       "depth": 0,
-      "source": "local-tarball",
+      "source": "local",
       "dependencies": {
         "com.unity.xr.arfoundation": "4.1.0-preview.10",
         "com.unity.xr.arcore": "4.1.0-preview.10"
