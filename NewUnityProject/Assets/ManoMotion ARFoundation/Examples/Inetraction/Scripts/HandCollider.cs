@@ -66,7 +66,7 @@ public class HandCollider : MonoBehaviour
         // transform.position = currentPosition;
         if (movingAverage)
         {
-            smoothedPostion = LinearWeightedMovingAverage(currentPosition);
+            smoothedPostion = MovingAverage(currentPosition);
         }
         else if (linearWeightedMovingAverage)
         {
@@ -110,9 +110,9 @@ public class HandCollider : MonoBehaviour
         
         for (i = 0; i < smoothingFrame; i++)
         {
-            xSum += smoothingBufferArray[i].x * i+1;
-            ySum += smoothingBufferArray[i].y * i+1;
-            zSum += smoothingBufferArray[i].z * i+1;
+            xSum += smoothingBufferArray[i].x * (i+1);
+            ySum += smoothingBufferArray[i].y * (i+1);
+            zSum += smoothingBufferArray[i].z * (i+1);
         }
 
         return new Vector3(xSum / trianglurNumber, ySum / trianglurNumber, zSum / trianglurNumber);
