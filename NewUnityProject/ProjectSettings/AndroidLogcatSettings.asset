@@ -3,63 +3,51 @@
     "m_SelectedPackage": {
         "deviceId": "a3511944",
         "name": "com.manomotion.arfoundationssdkceexample",
-        "processId": 24906,
+        "processId": 30204,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 12719,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 22711,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 25099,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 27293,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
-            "name": "com.manomotion.arfoundationssdkceexample",
-            "processId": 30278,
-            "exited": true
-        },
-        {
-            "deviceId": "a3511944",
             "name": "net.oneplus.launcher",
             "processId": 24741,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
             "processId": 32108,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
             "processId": 447,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "a3511944",
             "name": "com.manomotion.arfoundationssdkceexample",
             "processId": 24906,
+            "exited": true
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 16665,
+            "exited": true
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.facebook.katana",
+            "processId": 26340,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 30204,
             "exited": false
         }
     ],
