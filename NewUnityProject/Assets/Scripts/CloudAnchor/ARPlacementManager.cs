@@ -11,18 +11,29 @@ public class ARPlacementManager : MonoBehaviour
 
     [SerializeField]
     private GameObject placedPrefab = null;
-    private GameObject placedGameObject = null;
+    // private GameObject placedGameObject = null;
     private ARRaycastManager arRaycastManager = null;
     static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     private ARAnchorManager arAnchorManager = null;
 
+    private GameObject placedGameObjectTmp = null;
+    private List<GameObject> placedGameObjectList = new List<GameObject>();
+    // private int numOfPlaced = 0;
+
     private ARCloudAnchorManager arCloudAnchorManager = null;
+    private ARDebugManager arDebugManager = null;
 
     void Awake() 
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
         arAnchorManager = GetComponent<ARAnchorManager>();
         arCloudAnchorManager = GetComponent<ARCloudAnchorManager>();
+        arDebugManager = GetComponent<ARDebugManager>();
+
+        for (int i = 0; i < arCloudAnchorManager.NUM_OF_ANCHOR; i++)
+        {
+            placedGameObjectList.Add(new GameObject());
+        }
     }
 
     bool IsPointOverUIObject(Vector2 pos)
@@ -62,8 +73,16 @@ public class ARPlacementManager : MonoBehaviour
 
     public void RemovePlacements()
     {
-        Destroy(placedGameObject);
-        placedGameObject = null;
+        // Destroy(placedGameObject);
+        // placedGameObject = null;
+        arDebugManager.LogInfo($"RemovePlacements");
+        for (int i = 0; i < arCloudAnchorManager.NUM_OF_ANCHOR; i++)
+        {
+            Destroy(placedGameObjectList[i]);
+            arDebugManager.LogInfo($"RemovePlacements #{i}");
+            placedGameObjectList[i] = new GameObject();
+        }
+        arCloudAnchorManager.numOfQueued = 0;
     }
 
     void Update()
@@ -71,24 +90,29 @@ public class ARPlacementManager : MonoBehaviour
         if(!TryGetTouchPosition(out Vector2 touchPosition))
             return;
 
-        if(placedGameObject != null)
+        // if(placedGameObject != null)
+        //     return;
+        
+        if (arCloudAnchorManager.numOfQueued == arCloudAnchorManager.NUM_OF_ANCHOR)
             return;
 
         if(arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             var hitPose = hits[0].pose;
-            placedGameObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
+            placedGameObjectTmp = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
+            placedGameObjectList[arCloudAnchorManager.numOfQueued] = placedGameObjectTmp;
             var anchor = arAnchorManager.AddAnchor(new Pose(hitPose.position, hitPose.rotation));
-            placedGameObject.transform.parent = anchor.transform;
+            placedGameObjectList[arCloudAnchorManager.numOfQueued].transform.parent = anchor.transform;
 
             // this won't host the anchor just add a reference to be later host it
             arCloudAnchorManager.QueueAnchor(anchor);
         }
     }
 
-    public void ReCreatePlacement(Transform transform)
+    public void ReCreatePlacement(Transform transform, int index)
     {
-        placedGameObject = Instantiate(placedPrefab, transform.position, transform.rotation);
-        placedGameObject.transform.parent = transform;
+        placedGameObjectTmp = Instantiate(placedPrefab, transform.position, transform.rotation);
+        placedGameObjectList[index] = placedGameObjectTmp;
+        placedGameObjectList[index].transform.parent = transform;
     }
 }

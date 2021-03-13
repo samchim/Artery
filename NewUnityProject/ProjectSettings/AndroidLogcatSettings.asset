@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "a3511944",
         "name": "com.manomotion.arfoundationssdkceexample",
-        "processId": 4838,
+        "processId": 25222,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -105,6 +105,36 @@
             "exited": false
         },
         {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 10335,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 18438,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 13935,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 18801,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 25222,
+            "exited": false
+        },
+        {
             "deviceId": "8RBDU19403000269",
             "name": "com.manomotion.arfoundationssdkceexample",
             "processId": 22413,
@@ -167,7 +197,7 @@
         "MemoryGroup": 1,
         "Behavior": 1
     },
-    "m_Filter": "touch",
+    "m_Filter": "hit",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }
