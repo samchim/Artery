@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "a3511944",
         "name": "com.manomotion.arfoundationssdkceexample",
-        "processId": 30204,
+        "processId": 4838,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -49,6 +49,72 @@
             "name": "com.manomotion.arfoundationssdkceexample",
             "processId": 30204,
             "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 24523,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 25995,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 336,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 3053,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 5426,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 26354,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 28814,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 31329,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 4838,
+            "exited": false
+        },
+        {
+            "deviceId": "8RBDU19403000269",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 22413,
+            "exited": true
+        },
+        {
+            "deviceId": "8RBDU19403000269",
+            "name": "com.android.settings",
+            "processId": 1779,
+            "exited": true
         }
     ],
     "m_Tags": {
@@ -101,7 +167,7 @@
         "MemoryGroup": 1,
         "Behavior": 1
     },
-    "m_Filter": "Both",
+    "m_Filter": "touch",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }

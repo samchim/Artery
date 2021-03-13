@@ -50,7 +50,7 @@
      <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\SafeAreaScaler.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Instructions\HandSideInstruction.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\Category.cs" />
-     <Compile Include="Assets\Scripts\ARCloudAnchorManager.cs" />
+     <Compile Include="Assets\Scripts\CloudAnchor\ARCloudAnchorManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\CategoryManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
@@ -59,6 +59,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\ManomotionUIManagment.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\ManoLicense.cs" />
+     <Compile Include="Assets\Scripts\Bolt\NetworkCallbacks.cs" />
      <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\LocalPlayerController.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\MenuButton.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Instructions\GestureInstruction.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Manomotion\Scripts\Gizmos\TriggerGizmo.cs" />
      <Compile Include="Assets\Scripts\ARTapToCreateWithIndicator.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Gizmos\GizmoManager.cs" />
+     <Compile Include="Assets\Scripts\Bolt\Menu.cs" />
      <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\AnchorController.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\InputManagerPhoneCamera.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -136,8 +138,9 @@
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\HandInfo.cs" />
      <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\SpawnPoint.cs" />
-     <Compile Include="Assets\Scripts\Bolt\Menu.cs" />
-     <Compile Include="Assets\Scripts\Bolt\NetworkCallbacks.cs" />
+     <Compile Include="Assets\Scripts\CloudAnchor\ARDebugManager.cs" />
+     <Compile Include="Assets\Scripts\CloudAnchor\ARPlacementManager.cs" />
+     <Compile Include="Assets\Scripts\Extensions\BlockUIExtensions.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -347,26 +350,11 @@
     <Reference Include="UnityEditor">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="udpkit.platform.dotnet">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.dotnet.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+    <Reference Include="bolt">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/bolt.dll</HintPath>
     </Reference>
     <Reference Include="bolt.user">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/bolt.user.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Plugins/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="udpkit.platform.null">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.null.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="bolt">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/bolt.dll</HintPath>
     </Reference>
     <Reference Include="udpkit.common">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.common.dll</HintPath>
@@ -374,8 +362,23 @@
     <Reference Include="udpkit">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.dll</HintPath>
     </Reference>
+    <Reference Include="udpkit.platform.dotnet">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="udpkit.platform.null">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.null.dll</HintPath>
+    </Reference>
     <Reference Include="udpkit.platform.photon">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.photon.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Plugins/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -776,6 +779,12 @@
     <Reference Include="Unity.Timeline">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="Google.XR.ARCoreExtensions">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Google.XR.ARCoreExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.XR.ARCoreExtensions.Editor">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Google.XR.ARCoreExtensions.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
@@ -814,12 +823,6 @@
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.XR.ARCoreExtensions">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Google.XR.ARCoreExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.XR.ARCoreExtensions.Editor">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Google.XR.ARCoreExtensions.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

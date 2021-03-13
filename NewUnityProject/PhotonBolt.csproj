@@ -250,41 +250,20 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Google.VersionHandler">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/arcore-unity-extensions-1.22.0/package/Editor/Scripts/Internal/Analytics/Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="udpkit.platform.dotnet">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.dotnet.dll</HintPath>
-    </Reference>
-    <Reference Include="bolt.compiler">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/editor/bolt.compiler.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="bolt.editor">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/editor/bolt.editor.dll</HintPath>
+    <Reference Include="bolt">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/bolt.dll</HintPath>
     </Reference>
     <Reference Include="bolt.user">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/bolt.user.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Plugins/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+    <Reference Include="bolt.compiler">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/editor/bolt.compiler.dll</HintPath>
     </Reference>
-    <Reference Include="udpkit.platform.null">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.null.dll</HintPath>
+    <Reference Include="bolt.editor">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/editor/bolt.editor.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/editor/protobuf-net.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="bolt">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/bolt.dll</HintPath>
     </Reference>
     <Reference Include="udpkit.common">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.common.dll</HintPath>
@@ -292,8 +271,38 @@
     <Reference Include="udpkit">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.dll</HintPath>
     </Reference>
+    <Reference Include="udpkit.platform.dotnet">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="udpkit.platform.null">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.null.dll</HintPath>
+    </Reference>
     <Reference Include="udpkit.platform.photon">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonBolt/assemblies/udpkit/udpkit.platform.photon.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Assets/Plugins/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.IOSResolver_v1.2.122.0">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.122.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver_v1.2.122.0">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.JarResolver_v1.2.122.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl_v1.2.122.0">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.122.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/arcore-unity-extensions-1.22.0/package/Editor/Scripts/Internal/Analytics/Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -640,11 +649,11 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+        <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

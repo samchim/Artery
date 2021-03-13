@@ -1862,9 +1862,7 @@
       },
       "Name": "BomberState",
       "Guid": "eb8f2fbb-ac7b-49fe-ab6e-cd3235bb5c6e",
-      "Groups": [
-        "samples"
-      ]
+      "Groups": []
     },
     {
       "$type": "Bolt.Compiler.StateDefinition, bolt.compiler",
@@ -2043,9 +2041,7 @@
       "Properties": [],
       "Name": "LobbyCommand",
       "Guid": "81012bbd-c4bd-4503-86b6-b6908ece5bd0",
-      "Groups": [
-        "samples"
-      ]
+      "Groups": []
     },
     {
       "$type": "Bolt.Compiler.EventDefinition, bolt.compiler",
@@ -4395,7 +4391,127 @@
       "Groups": [
         "samples"
       ]
+    },
+    {
+      "$type": "Bolt.Compiler.StateDefinition, bolt.compiler",
+      "Properties": [
+        {
+          "Name": "CloudAnchorsID",
+          "Enabled": true,
+          "Expanded": true,
+          "ReplicationMode": 1,
+          "Priority": 1,
+          "PropertyType": {
+            "$type": "Bolt.Compiler.PropertyTypeArray, bolt.compiler",
+            "ElementCount": 2,
+            "ElementType": {
+              "$type": "Bolt.Compiler.PropertyTypeString, bolt.compiler",
+              "MaxLength": 1
+            }
+          },
+          "AssetSettings": {
+            "$type": "Bolt.Compiler.PropertyStateSettings, bolt.compiler",
+            "ExtrapolationErrorTolerance": 0.25,
+            "_ExtrapolationCorrectionFrames": 6,
+            "ExtrapolationMaxFrames": 9,
+            "SnapMagnitude": 10.0
+          }
+        },
+        {
+          "Name": "Quality",
+          "Enabled": true,
+          "Expanded": true,
+          "ReplicationMode": 1,
+          "Priority": 1,
+          "PropertyType": {
+            "$type": "Bolt.Compiler.PropertyTypeInteger, bolt.compiler",
+            "MaxValue": 2,
+            "CompressionEnabled": true
+          },
+          "AssetSettings": {
+            "$type": "Bolt.Compiler.PropertyStateSettings, bolt.compiler",
+            "ExtrapolationErrorTolerance": 0.25,
+            "_ExtrapolationCorrectionFrames": 6,
+            "ExtrapolationMaxFrames": 9,
+            "SnapMagnitude": 10.0
+          }
+        }
+      ],
+      "PacketMaxBits": 512,
+      "PacketMaxProperties": 16,
+      "InitialPositionCompression": {
+        "Selection": 14,
+        "Compression": [
+          {
+            "MinValue": -1024,
+            "MaxValue": 1024,
+            "Accuracy": 0.01,
+            "Pack": 100.0,
+            "Read": 0.01,
+            "Shift": 1024.0,
+            "BitsRequired": 18
+          },
+          {
+            "MinValue": -1024,
+            "MaxValue": 1024,
+            "Accuracy": 0.01,
+            "Pack": 100.0,
+            "Read": 0.01,
+            "Shift": 1024.0,
+            "BitsRequired": 18
+          },
+          {
+            "MinValue": -1024,
+            "MaxValue": 1024,
+            "Accuracy": 0.01,
+            "Pack": 100.0,
+            "Read": 0.01,
+            "Shift": 1024.0,
+            "BitsRequired": 18
+          }
+        ]
+      },
+      "InitialRotationCompression": {
+        "Selection": 14,
+        "EulerCompression": [
+          {
+            "MaxValue": 360,
+            "Accuracy": 1.0,
+            "Pack": 1.0,
+            "Read": 1.0,
+            "BitsRequired": 9
+          },
+          {
+            "MaxValue": 360,
+            "Accuracy": 1.0,
+            "Pack": 1.0,
+            "Read": 1.0,
+            "BitsRequired": 9
+          },
+          {
+            "MaxValue": 360,
+            "Accuracy": 1.0,
+            "Pack": 1.0,
+            "Read": 1.0,
+            "BitsRequired": 9
+          }
+        ],
+        "QuaternionCompression": {
+          "MinValue": -1,
+          "MaxValue": 1,
+          "Accuracy": 0.01,
+          "Pack": 100.0,
+          "Read": 0.01,
+          "Shift": 1.0,
+          "BitsRequired": 8
+        }
+      },
+      "Name": "CloudAnchorsMeta",
+      "Guid": "7e1f3e82-a20d-4c1d-9bc4-9d8ad34b033a",
+      "Groups": [
+        "CloudAnchor"
+      ]
     }
   ],
-  "ActiveGroup": "samples"
+  "ActiveGroup": "CloudAnchor"
 }
