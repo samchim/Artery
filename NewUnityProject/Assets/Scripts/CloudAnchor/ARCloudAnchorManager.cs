@@ -84,8 +84,8 @@ public class ARCloudAnchorManager : MonoBehaviour
             FeatureMapQuality quality = arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
         }
 
-        cloudAnchorList[anchorUpdateInProgress] = arAnchorManager.HostCloudAnchor(pendingHostAnchorList[anchorUpdateInProgress], 1);
-        if (cloudAnchorList[anchorUpdateInProgress] == null)
+        cloudAnchorList[anchorUpdateInProgress - 1] = arAnchorManager.HostCloudAnchor(pendingHostAnchorList[anchorUpdateInProgress - 1], 1);
+        if (cloudAnchorList[anchorUpdateInProgress - 1] == null)
         {
             arDebugManager.LogError($"Unable to host cloud anchor #{anchorUpdateInProgress}");
             if (anchorUpdateInProgress < NUM_OF_ANCHOR)
@@ -119,17 +119,21 @@ public class ARCloudAnchorManager : MonoBehaviour
     private void CheckHostingProgress()
     {
 
-        CloudAnchorState cloudAnchorState = cloudAnchorList[anchorUpdateInProgress].cloudAnchorState;
+        CloudAnchorState cloudAnchorState = cloudAnchorList[anchorUpdateInProgress - 1].cloudAnchorState;
         if (cloudAnchorState == CloudAnchorState.Success)
         {
             arDebugManager.LogError($"Anchor #{anchorUpdateInProgress.ToString()} successfully hosted");
 
             // keep track of cloud anchors added
-            anchorToResolveList[anchorUpdateInProgress] = cloudAnchorList[anchorUpdateInProgress].cloudAnchorId;
+            anchorToResolveList[anchorUpdateInProgress - 1] = cloudAnchorList[anchorUpdateInProgress - 1].cloudAnchorId;
         }
         else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
         {
             arDebugManager.LogError($"Fail to host anchor #{anchorUpdateInProgress.ToString()} with state: {cloudAnchorState}");
+        }
+        else
+        {
+            arDebugManager.LogInfo($"CheckHostingProgress #{(anchorUpdateInProgress).ToString()}");
         }
 
         if (anchorUpdateInProgress < NUM_OF_ANCHOR)
@@ -138,7 +142,7 @@ public class ARCloudAnchorManager : MonoBehaviour
             HostAnchor();
         }
         else
-            anchorUpdateInProgress = 0;
+            anchorUpdateInProgress = 1;
 
         // CloudAnchorState cloudAnchorState = cloudAnchor.cloudAnchorState;
         // if (cloudAnchorState == CloudAnchorState.Success)
@@ -171,9 +175,9 @@ public class ARCloudAnchorManager : MonoBehaviour
     {
         arDebugManager.LogInfo("Resolve executing");
 
-        cloudAnchorList[anchorResolveInProgress] = arAnchorManager.ResolveCloudAnchorId(anchorToResolveList[anchorResolveInProgress]);
+        cloudAnchorList[anchorResolveInProgress - 1] = arAnchorManager.ResolveCloudAnchorId(anchorToResolveList[anchorResolveInProgress - 1]);
 
-        if (cloudAnchorList[anchorResolveInProgress] == null)
+        if (cloudAnchorList[anchorResolveInProgress - 1] == null)
         {
             arDebugManager.LogError($"Failed to resolve cloud achor #{anchorResolveInProgress} id {cloudAnchorList[anchorResolveInProgress].cloudAnchorId}");
 
@@ -203,20 +207,24 @@ public class ARCloudAnchorManager : MonoBehaviour
     private void CheckResolveProgress()
     {
 
-        CloudAnchorState cloudAnchorState = cloudAnchorList[anchorResolveInProgress].cloudAnchorState;
+        CloudAnchorState cloudAnchorState = cloudAnchorList[anchorResolveInProgress - 1].cloudAnchorState;
 
         arDebugManager.LogInfo($"ResolveCloudAnchor #{anchorResolveInProgress} state {cloudAnchorState}");
 
         if (cloudAnchorState == CloudAnchorState.Success)
         {
-            arDebugManager.LogInfo($"CloudAnchorId: {cloudAnchorList[anchorResolveInProgress].cloudAnchorId} resolved");
+            arDebugManager.LogInfo($"CloudAnchorId: {cloudAnchorList[anchorResolveInProgress - 1].cloudAnchorId} resolved");
 
-            resolver.Invoke(cloudAnchorList[anchorResolveInProgress].transform, anchorResolveInProgress);
+            resolver.Invoke(cloudAnchorList[anchorResolveInProgress - 1].transform, anchorResolveInProgress);
             // arPlacementManager.ReCreatePlacement(cloudAnchor.transform, i);
         }
         else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
         {
             arDebugManager.LogError($"Fail to resolve Cloud Anchor with state: {cloudAnchorState}");
+        }
+        else
+        {
+            arDebugManager.LogInfo($"CheckResolveProgress #{(anchorResolveInProgress).ToString()}");
         }
 
         if (anchorResolveInProgress < NUM_OF_ANCHOR)
@@ -227,7 +235,7 @@ public class ARCloudAnchorManager : MonoBehaviour
         }
         else
         {
-            anchorResolveInProgress = 0;
+            anchorResolveInProgress = 1;
         }
 
 

@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 125715475}
   - component: {fileID: 125715474}
   - component: {fileID: 125715479}
+  - component: {fileID: 125715480}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -188,6 +189,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arCamera: {fileID: 1576012489}
   resolveAnchorPassedTimeout: 10
+  worldOrigin: {fileID: 0}
+  NUM_OF_ANCHOR: 3
+  numOfQueued: 0
+  numofResolved: 0
 --- !u!114 &125715475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +265,25 @@ MonoBehaviour:
   arCamera: {fileID: 1576012489}
   placedPrefab: {fileID: 5197932727105514753, guid: 2b743f2b886f57a4c9e34036bc23146e,
     type: 3}
+--- !u!114 &125715480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125715471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81d2254812747445b2caeb99aad9fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 1576012489}
+  resolveAnchorPassedTimeout: 10
+  worldOrigin: {fileID: 4037801164931699263, guid: ee54351420be87942926db811bfaa5d2,
+    type: 3}
+  NUM_OF_ANCHOR: 3
+  numOfQueued: 0
+  numofResolved: 0
 --- !u!1 &259743901
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +368,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 125715474}
         m_TargetAssemblyTypeName: ARCloudAnchorManager, Assembly-CSharp
-        m_MethodName: Resolve
+        m_MethodName: StartResolve
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -426,7 +450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -500}
+  m_AnchoredPosition: {x: 0, y: -550}
   m_SizeDelta: {x: 1024, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596227581
@@ -1497,7 +1521,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 125715474}
         m_TargetAssemblyTypeName: ARCloudAnchorManager, Assembly-CSharp
-        m_MethodName: HostAnchor
+        m_MethodName: startHostAnchor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1545,3 +1569,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983689747}
   m_CullTransparentMesh: 0
+--- !u!1001 &2074803946
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 442.23828
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 180.34422
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -40.383915
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927911171026964938, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037801164931699263, guid: ee54351420be87942926db811bfaa5d2,
+        type: 3}
+      propertyPath: m_Name
+      value: World Origin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee54351420be87942926db811bfaa5d2, type: 3}
