@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "a3511944",
         "name": "com.manomotion.arfoundationssdkceexample",
-        "processId": 6527,
+        "processId": 28799,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -183,6 +183,36 @@
             "exited": false
         },
         {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 9403,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 16168,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 18555,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 22387,
+            "exited": false
+        },
+        {
+            "deviceId": "a3511944",
+            "name": "com.manomotion.arfoundationssdkceexample",
+            "processId": 28799,
+            "exited": false
+        },
+        {
             "deviceId": "8RBDU19403000269",
             "name": "com.manomotion.arfoundationssdkceexample",
             "processId": 22413,
@@ -245,7 +275,7 @@
         "MemoryGroup": 1,
         "Behavior": 1
     },
-    "m_Filter": "",
+    "m_Filter": "CheckHostingProgress",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }

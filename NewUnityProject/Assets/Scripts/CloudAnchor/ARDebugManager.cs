@@ -24,12 +24,14 @@ public class ARDebugManager : MonoBehaviour
     {
         ClearLines();
         debugAreaText.text += $"{DateTime.Now.ToString("yyyy-dd-M HH:mm:ss")}: <color=\"white\">{message}</color>\n";
+        Debug.Log(message);
     }
 
     public void LogError(string message)
     {
         ClearLines();
         debugAreaText.text += $"{DateTime.Now.ToString("yyyy-dd-M HH:mm:ss")}: <color=\"red\">{message}</color>\n";
+        Debug.Log(message);
     }
 
     public void LogWarning(string message)

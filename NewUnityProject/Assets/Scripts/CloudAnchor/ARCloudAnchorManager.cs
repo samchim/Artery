@@ -29,13 +29,14 @@ public class ARCloudAnchorManager : MonoBehaviour
     private UnityEvent<Transform, int> resolver = null;
 
     private List<ARAnchor> pendingHostAnchorList = new List<ARAnchor>();
-    private int anchorUpdateInProgress = 0;
+    private bool anchorUpdateInProgress = false;
     private List<string> anchorToResolveList = new List<string>();
     private int anchorResolveInProgress = 0;
     public int numOfQueued = 0;
     // public int numOfHosted = 0;
     public int numOfResolved = 0;
     private List<ARCloudAnchor> cloudAnchorList = new List<ARCloudAnchor>();
+    private int i;
 
     private ARPlacementManager arPlacementManager = null;
     private ARDebugManager arDebugManager = null;
@@ -48,7 +49,7 @@ public class ARCloudAnchorManager : MonoBehaviour
         resolver = new UnityEvent<Transform, int>();
         resolver.AddListener((t, i) => arPlacementManager.ReCreatePlacement(t, i));
 
-        for (int i = 0; i < NUM_OF_ANCHOR; i++)
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
             pendingHostAnchorList.Add(null);
             anchorToResolveList.Add("");
@@ -72,28 +73,26 @@ public class ARCloudAnchorManager : MonoBehaviour
 
     public void startHostAnchor()
     {
-        anchorUpdateInProgress = 1;
-        for (int i = 0; i < numOfQueued; i++)
+        for (i = 0; i < numOfQueued; i++)
         {
-            HostAnchor();
-            anchorUpdateInProgress++;
+            HostAnchor(i);
         }
-        anchorUpdateInProgress = 1;
+        anchorUpdateInProgress = true;
     }
 
-    public void HostAnchor()
+    public void HostAnchor(int index)
     {
-        arDebugManager.LogInfo($"HostAnchor executing #" + anchorUpdateInProgress.ToString());
+        arDebugManager.LogInfo($"HostAnchor executing #" + (index + 1).ToString());
 
-        if (anchorUpdateInProgress == 1)
+        if (index == 0)
         {
             FeatureMapQuality quality = arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
         }
 
-        cloudAnchorList[anchorUpdateInProgress - 1] = arAnchorManager.HostCloudAnchor(pendingHostAnchorList[anchorUpdateInProgress - 1], 1);
-        if (cloudAnchorList[anchorUpdateInProgress - 1] == null)
+        cloudAnchorList[index] = arAnchorManager.HostCloudAnchor(pendingHostAnchorList[index], 1);
+        if (cloudAnchorList[index] == null)
         {
-            arDebugManager.LogError($"Unable to host cloud anchor #{anchorUpdateInProgress}");
+            arDebugManager.LogError($"Unable to host cloud anchor #{(index + 1).ToString()}");
             numOfQueued--;
         }
     }
@@ -101,10 +100,11 @@ public class ARCloudAnchorManager : MonoBehaviour
     private int NumOfHosted()
     {
         int n = 0;
-        for (int i = 0; i < NUM_OF_ANCHOR; i++)
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
-            if (cloudAnchorList[i] != null 
-            && (cloudAnchorList[i].cloudAnchorState == CloudAnchorState.Success || cloudAnchorList[i].cloudAnchorState != CloudAnchorState.TaskInProgress)){
+            if (cloudAnchorList[i] != null
+            && (cloudAnchorList[i].cloudAnchorState == CloudAnchorState.Success || cloudAnchorList[i].cloudAnchorState != CloudAnchorState.TaskInProgress))
+            {
                 n += 1;
             }
         }
@@ -113,39 +113,40 @@ public class ARCloudAnchorManager : MonoBehaviour
 
     private void CheckHostingProgress()
     {
-
-        CloudAnchorState cloudAnchorState = cloudAnchorList[anchorUpdateInProgress - 1].cloudAnchorState;
-        if (cloudAnchorState == CloudAnchorState.Success)
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
-            arDebugManager.LogError($"Anchor #{anchorUpdateInProgress.ToString()} successfully hosted");
+            if (cloudAnchorList[i] != null)
+            {
+                CloudAnchorState cloudAnchorState = cloudAnchorList[i].cloudAnchorState;
+                if (cloudAnchorState == CloudAnchorState.Success)
+                {
+                    arDebugManager.LogError($"Anchor #{(i + 1).ToString()} successfully hosted");
 
-            // keep track of cloud anchors added
-            anchorToResolveList[anchorUpdateInProgress - 1] = cloudAnchorList[anchorUpdateInProgress - 1].cloudAnchorId;
+                    // keep track of cloud anchors added
+                    anchorToResolveList[i] = cloudAnchorList[i].cloudAnchorId;
+                }
+                else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
+                {
+                    arDebugManager.LogError($"Fail to host anchor #{(i + 1).ToString()} with state: {cloudAnchorState}");
+                }
+                else
+                {
+                    arDebugManager.LogInfo($"CheckHostingProgress #{(i + 1).ToString()}");
+                    // arDebugManager.LogInfo($"#{(i + 1).ToString()}: NumOfHosted() = {NumOfHosted().ToString()}");
+                }
+            }
+            else 
+            {
+                arDebugManager.LogInfo($"CheckHostingProgress #{(i + 1).ToString()} is null");
+            }
         }
-        else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
-        {
-            arDebugManager.LogError($"Fail to host anchor #{anchorUpdateInProgress.ToString()} with state: {cloudAnchorState}");
-        }
-        else
-        {
-            arDebugManager.LogInfo($"CheckHostingProgress #{(anchorUpdateInProgress).ToString()}");
-            arDebugManager.LogInfo($"#{(anchorUpdateInProgress).ToString()}: NumOfHosted() = {NumOfHosted().ToString()}");
-        }
-
-        if (anchorUpdateInProgress < (NUM_OF_ANCHOR))
-        {
-            anchorUpdateInProgress++;
-        }
-        else
-            anchorUpdateInProgress = 1;
-
         if (NumOfHosted() >= numOfQueued)
-            anchorUpdateInProgress = 0;
+            anchorUpdateInProgress = false;
     }
 
     public void StartResolve()
     {
-        for (int i = 0; i < NUM_OF_ANCHOR; i++)
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
             cloudAnchorList[i] = new ARCloudAnchor();
         }
@@ -253,7 +254,7 @@ public class ARCloudAnchorManager : MonoBehaviour
         qy = 0;
         qz = 0;
         qw = 0;
-        for (int i = 0; i < NUM_OF_ANCHOR; i++)
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
             if (!cloudAnchorList[i].Equals(new ARCloudAnchor()))
             {
@@ -275,7 +276,10 @@ public class ARCloudAnchorManager : MonoBehaviour
     void Update()
     {
         // check progress of new anchors created
-        if (0 < anchorUpdateInProgress && anchorUpdateInProgress <= NUM_OF_ANCHOR)
+        // before
+        // if (0 < anchorUpdateInProgress && anchorUpdateInProgress <= NUM_OF_ANCHOR)
+        // after
+        if (anchorUpdateInProgress)
         {
             CheckHostingProgress();
             return;
