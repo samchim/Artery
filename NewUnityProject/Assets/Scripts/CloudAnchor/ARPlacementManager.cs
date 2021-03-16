@@ -18,7 +18,7 @@ public class ARPlacementManager : MonoBehaviour
 
     private GameObject placedGameObjectTmp = null;
     private List<GameObject> placedGameObjectList = new List<GameObject>();
-    // private int numOfPlaced = 0;
+    private int numOfPlaced = 0;
 
     private ARCloudAnchorManager arCloudAnchorManager = null;
     private ARDebugManager arDebugManager = null;
@@ -83,6 +83,7 @@ public class ARPlacementManager : MonoBehaviour
             placedGameObjectList[i] = new GameObject();
         }
         arCloudAnchorManager.numOfQueued = 0;
+        numOfPlaced = 0;
     }
 
     void Update()
@@ -93,7 +94,7 @@ public class ARPlacementManager : MonoBehaviour
         // if(placedGameObject != null)
         //     return;
         
-        if (arCloudAnchorManager.numOfQueued == arCloudAnchorManager.NUM_OF_ANCHOR)
+        if (numOfPlaced == arCloudAnchorManager.NUM_OF_ANCHOR)
             return;
 
         if(arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
@@ -106,6 +107,7 @@ public class ARPlacementManager : MonoBehaviour
 
             // this won't host the anchor just add a reference to be later host it
             arCloudAnchorManager.QueueAnchor(anchor);
+            numOfPlaced ++;
         }
     }
 
@@ -114,5 +116,6 @@ public class ARPlacementManager : MonoBehaviour
         placedGameObjectTmp = Instantiate(placedPrefab, transform.position, transform.rotation);
         placedGameObjectList[index] = placedGameObjectTmp;
         placedGameObjectList[index].transform.parent = transform;
+        numOfPlaced ++;
     }
 }

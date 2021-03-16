@@ -23,18 +23,16 @@ public class ARCloudAnchorManager : MonoBehaviour
     // private ARAnchor pendingHostAnchor = null;
     // private ARCloudAnchor cloudAnchor = null;
     // private string anchorToResolve;
-    // private bool anchorUpdateInProgress = false;
-    // private bool anchorResolveInProgress = false;
+    private bool anchorUpdateInProgress = false;
+    private bool anchorResolveInProgress = false;
     private float safeToResolvePassed = 0;
     private UnityEvent<Transform, int> resolver = null;
 
     private List<ARAnchor> pendingHostAnchorList = new List<ARAnchor>();
-    private bool anchorUpdateInProgress = false;
     private List<string> anchorToResolveList = new List<string>();
-    private int anchorResolveInProgress = 0;
     public int numOfQueued = 0;
-    // public int numOfHosted = 0;
-    public int numOfResolved = 0;
+    // public int NumOfCloudAnchor = 0;
+    public int numOfToBeResolved = 0;
     private List<ARCloudAnchor> cloudAnchorList = new List<ARCloudAnchor>();
     private int i;
 
@@ -52,7 +50,7 @@ public class ARCloudAnchorManager : MonoBehaviour
         for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
             pendingHostAnchorList.Add(null);
-            anchorToResolveList.Add("");
+            anchorToResolveList.Add(null);
             cloudAnchorList.Add(null);
         }
     }
@@ -73,6 +71,11 @@ public class ARCloudAnchorManager : MonoBehaviour
 
     public void startHostAnchor()
     {
+        FeatureMapQuality quality = arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
+        for (i = 0; i < numOfQueued; i++)
+        {
+            anchorToResolveList[i] = null;
+        }
         for (i = 0; i < numOfQueued; i++)
         {
             HostAnchor(i);
@@ -83,21 +86,17 @@ public class ARCloudAnchorManager : MonoBehaviour
     public void HostAnchor(int index)
     {
         arDebugManager.LogInfo($"HostAnchor executing #" + (index + 1).ToString());
-
-        if (index == 0)
-        {
-            FeatureMapQuality quality = arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
-        }
-
         cloudAnchorList[index] = arAnchorManager.HostCloudAnchor(pendingHostAnchorList[index], 1);
         if (cloudAnchorList[index] == null)
         {
             arDebugManager.LogError($"Unable to host cloud anchor #{(index + 1).ToString()}");
             numOfQueued--;
+
+            // TODO: Remove the broken anchor and allow ARPlacementManger to add one new anchor to pendingHostAnchorList
         }
     }
 
-    private int NumOfHosted()
+    private int NumOfCloudAnchor()
     {
         int n = 0;
         for (i = 0; i < NUM_OF_ANCHOR; i++)
@@ -131,118 +130,78 @@ public class ARCloudAnchorManager : MonoBehaviour
                 }
                 else
                 {
-                    arDebugManager.LogInfo($"CheckHostingProgress #{(i + 1).ToString()}");
-                    // arDebugManager.LogInfo($"#{(i + 1).ToString()}: NumOfHosted() = {NumOfHosted().ToString()}");
+                    // arDebugManager.LogInfo($"CheckHostingProgress #{(i + 1).ToString()}");
+                    // arDebugManager.LogInfo($"#{(i + 1).ToString()}: NumOfCloudAnchor() = {NumOfCloudAnchor().ToString()}");
                 }
             }
-            else 
+            else
             {
                 arDebugManager.LogInfo($"CheckHostingProgress #{(i + 1).ToString()} is null");
             }
         }
-        if (NumOfHosted() >= numOfQueued)
+        if (NumOfCloudAnchor() == numOfQueued)
             anchorUpdateInProgress = false;
     }
 
     public void StartResolve()
     {
+        numOfToBeResolved = NUM_OF_ANCHOR;
         for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
-            cloudAnchorList[i] = new ARCloudAnchor();
+            cloudAnchorList[i] = null;
         }
-        anchorResolveInProgress = 1;
-        Resolve();
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
+        {
+            Resolve(i);
+        }
+        anchorResolveInProgress = true;
     }
 
-    public void Resolve()
+    public void Resolve(int index)
     {
-        arDebugManager.LogInfo("Resolve executing");
+        arDebugManager.LogInfo($"Resolve executing #{index + 1} id #{anchorToResolveList[index]}");
 
-        cloudAnchorList[anchorResolveInProgress - 1] = arAnchorManager.ResolveCloudAnchorId(anchorToResolveList[anchorResolveInProgress - 1]);
+        cloudAnchorList[index] = arAnchorManager.ResolveCloudAnchorId(anchorToResolveList[index]);
 
-        if (cloudAnchorList[anchorResolveInProgress - 1] == null)
+        if (cloudAnchorList[index] == null)
         {
-            arDebugManager.LogError($"Failed to resolve cloud achor #{anchorResolveInProgress} id {cloudAnchorList[anchorResolveInProgress].cloudAnchorId}");
-
-            if (anchorResolveInProgress < NUM_OF_ANCHOR)
-            {
-                anchorResolveInProgress++;
-                Resolve();
-            }
-            else
-                anchorResolveInProgress = 0;
+            arDebugManager.LogError($"Failed to resolve cloud achor #{index + 1} id {cloudAnchorList[index].cloudAnchorId}");
+            // TODO
+            numOfToBeResolved--;
         }
-
-        // ARDebugManager.Instance.LogInfo("Resolve executing");
-
-        // cloudAnchor = arAnchorManager.ResolveCloudAnchorId(anchorToResolve);
-
-        // if(cloudAnchor == null)
-        // {
-        //     ARDebugManager.Instance.LogError($"Failed to resolve cloud achor id {cloudAnchor.cloudAnchorId}");
-        // }
-        // else
-        // {
-        //     anchorResolveInProgress = true;
-        // }
     }
 
     private void CheckResolveProgress()
     {
-
-        CloudAnchorState cloudAnchorState = cloudAnchorList[anchorResolveInProgress - 1].cloudAnchorState;
-
-        arDebugManager.LogInfo($"ResolveCloudAnchor #{anchorResolveInProgress} state {cloudAnchorState}");
-
-        if (cloudAnchorState == CloudAnchorState.Success)
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
-            arDebugManager.LogInfo($"CloudAnchorId: {cloudAnchorList[anchorResolveInProgress - 1].cloudAnchorId} resolved");
+            if (cloudAnchorList[i] != null)
+            {
+                CloudAnchorState cloudAnchorState = cloudAnchorList[i].cloudAnchorState;
 
-            resolver.Invoke(cloudAnchorList[anchorResolveInProgress - 1].transform, anchorResolveInProgress);
-            // arPlacementManager.ReCreatePlacement(cloudAnchor.transform, i);
+                if (cloudAnchorState == CloudAnchorState.Success)
+                {
+                    arDebugManager.LogInfo($"CloudAnchorId: {cloudAnchorList[i].cloudAnchorId} resolved");
+
+                    resolver.Invoke(cloudAnchorList[i].transform, i);
+                    // arPlacementManager.ReCreatePlacement(cloudAnchor.transform, i);
+                }
+                else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
+                {
+                    arDebugManager.LogError($"Fail to resolve Cloud Anchor #{(i + 1).ToString()} with state: {cloudAnchorState}");
+                }
+                else
+                {
+                    arDebugManager.LogInfo($"CheckResolveProgress #{(i + 1).ToString()}  id {cloudAnchorList[i].cloudAnchorId}");
+                }
+            }
         }
-        else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
+        if (NumOfCloudAnchor() == numOfToBeResolved)
         {
-            arDebugManager.LogError($"Fail to resolve Cloud Anchor with state: {cloudAnchorState}");
+            anchorResolveInProgress = false;
+            AverageWorldOrigin();
         }
-        else
-        {
-            arDebugManager.LogInfo($"CheckResolveProgress #{(anchorResolveInProgress).ToString()}");
-        }
-
-        if (anchorResolveInProgress < NUM_OF_ANCHOR)
-        {
-            anchorResolveInProgress++;
-            Resolve();
-            numOfResolved++;
-        }
-        else
-        {
-            anchorResolveInProgress = 1;
-        }
-
-
-        // CloudAnchorState cloudAnchorState = cloudAnchor.cloudAnchorState;
-
-        // arDebugManager.LogInfo($"ResolveCloudAnchor state {cloudAnchorState}");
-
-        // if (cloudAnchorState == CloudAnchorState.Success)
-        // {
-        //     arDebugManager.LogInfo($"CloudAnchorId: {cloudAnchor.cloudAnchorId} resolved");
-
-        //     resolver.Invoke(cloudAnchor.transform);
-        //     // arPlacementManager.ReCreatePlacement(cloudAnchor.transform, i);
-
-        //     anchorResolveInProgress = false;
-        // }
-        // else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
-        // {
-        //     arDebugManager.LogError($"Fail to resolve Cloud Anchor with state: {cloudAnchorState}");
-
-        //     anchorResolveInProgress = false;
-        // }
     }
-
 
     private float px, py, pz, qx, qy, qz, qw = 0;
     private void AverageWorldOrigin()
@@ -256,7 +215,7 @@ public class ARCloudAnchorManager : MonoBehaviour
         qw = 0;
         for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
-            if (!cloudAnchorList[i].Equals(new ARCloudAnchor()))
+            if (!cloudAnchorList[i].Equals(null))
             {
                 px += cloudAnchorList[i].transform.position.x;
                 py += cloudAnchorList[i].transform.position.y;
@@ -267,8 +226,8 @@ public class ARCloudAnchorManager : MonoBehaviour
                 qw += cloudAnchorList[i].transform.rotation.w;
             }
         }
-        worldOrigin.transform.position = new Vector3(px / numOfResolved, py / numOfResolved, pz / numOfResolved);
-        worldOrigin.transform.rotation = new Quaternion(qx / numOfResolved, qy / numOfResolved, qz / numOfResolved, qw / numOfResolved);
+        worldOrigin.transform.position = new Vector3(px / numOfToBeResolved, py / numOfToBeResolved, pz / numOfToBeResolved);
+        worldOrigin.transform.rotation = new Quaternion(qx / numOfToBeResolved, qy / numOfToBeResolved, qz / numOfToBeResolved, qw / numOfToBeResolved);
     }
 
     #endregion
@@ -276,9 +235,6 @@ public class ARCloudAnchorManager : MonoBehaviour
     void Update()
     {
         // check progress of new anchors created
-        // before
-        // if (0 < anchorUpdateInProgress && anchorUpdateInProgress <= NUM_OF_ANCHOR)
-        // after
         if (anchorUpdateInProgress)
         {
             CheckHostingProgress();
@@ -290,17 +246,9 @@ public class ARCloudAnchorManager : MonoBehaviour
             // check evey (resolveAnchorPassedTimeout)
             safeToResolvePassed = resolveAnchorPassedTimeout;
 
-            if (0 < anchorResolveInProgress && anchorResolveInProgress <= NUM_OF_ANCHOR)
+            if (anchorResolveInProgress)
             {
-                if (numOfResolved < 3)
-                {
-                    arDebugManager.LogInfo($"Resolving AnchorId #{anchorResolveInProgress}: {anchorToResolveList[anchorResolveInProgress]}");
-                    CheckResolveProgress();
-                }
-            }
-            else
-            {
-                AverageWorldOrigin();
+                CheckResolveProgress();
             }
         }
         else

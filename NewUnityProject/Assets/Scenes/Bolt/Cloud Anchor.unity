@@ -192,7 +192,7 @@ MonoBehaviour:
   worldOrigin: {fileID: 0}
   NUM_OF_ANCHOR: 3
   numOfQueued: 0
-  numofResolved: 0
+  numOfToBeResolved: 0
 --- !u!114 &125715475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,12 +278,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arCamera: {fileID: 1576012489}
-  resolveAnchorPassedTimeout: 10
+  resolveAnchorPassedTimeout: 1
   worldOrigin: {fileID: 4037801164931699263, guid: ee54351420be87942926db811bfaa5d2,
     type: 3}
   NUM_OF_ANCHOR: 3
   numOfQueued: 0
-  numofResolved: 0
+  numOfToBeResolved: 0
 --- !u!1 &259743901
 GameObject:
   m_ObjectHideFlags: 0
