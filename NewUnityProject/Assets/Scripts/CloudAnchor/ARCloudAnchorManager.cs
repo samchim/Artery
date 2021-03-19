@@ -33,6 +33,7 @@ public class ARCloudAnchorManager : MonoBehaviour
     public int numOfQueued = 0;
     // public int NumOfCloudAnchor = 0;
     public int numOfToBeResolved = 0;
+    public int brokenAnchor = 0;
     private List<ARCloudAnchor> cloudAnchorList = new List<ARCloudAnchor>();
     private int i;
 
@@ -69,6 +70,8 @@ public class ARCloudAnchorManager : MonoBehaviour
         numOfQueued++;
     }
 
+
+
     public void startHostAnchor()
     {
         FeatureMapQuality quality = arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
@@ -91,7 +94,7 @@ public class ARCloudAnchorManager : MonoBehaviour
         {
             arDebugManager.LogError($"Unable to host cloud anchor #{(index + 1).ToString()}");
             numOfQueued--;
-
+            brokenAnchor++;
             // TODO: Remove the broken anchor and allow ARPlacementManger to add one new anchor to pendingHostAnchorList
         }
     }

@@ -11,10 +11,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{98FB235A-AE52-F2A5-5FF9-6ACF4769CB28}</ProjectGuid>
+    <ProjectGuid>{730BDEBD-2C3E-3EC2-1A49-40951AD6A2EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>PhotonWebSocket</AssemblyName>
+    <AssemblyName>Google.XR.ARCoreExtensions</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -55,9 +55,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
-     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
-     <None Include="Assets\Photon\PhotonLibs\WebSocket\PhotonWebSocket.asmdef" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiCloudAnchorState.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiPlaybackStatus.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARPlaybackManager.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CloudReferenceState.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiCloudAnchorMode.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Helpers\Translators.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CloudAnchorState.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\PlaybackStatus.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\CameraConfigFilterApi.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\PoseApi.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Helpers\DllImportNoop.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiArStatus.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\VersionInfo.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\CachedData.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\ARCoreHandles\ARCoreHandleExtensions.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\SessionApi.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCloudReferencePoint.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CameraConfigDepthSensorUsage.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\RecordingConfigApi.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARRecordingManager.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\RuntimeConfig.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCoreRecordingConfig.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiRecordingStatus.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\PropertyAttributes\HelpAttribute.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\RecordingStatus.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\XRCameraConfigurationExtensions.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\CameraConfigApi.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CameraConfigTargetFps.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiPose.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\PropertyAttributes\DynamicHelpAttribute.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\IOSSupportManager.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\RecordingResult.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\PlaybackResult.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCoreExtensionsConfig.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCoreExtensionsCameraConfigFilter.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiTrackingState.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CameraConfigStereoCameraUsage.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CloudAnchorMode.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\FeatureMapQuality.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARAnchorManagerExtensions.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\AndroidPermissionsManager.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\PropertyAttributes\EnumFlagsAttribute.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCloudAnchor.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\AnchorApi.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\ApiConstants.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCoreExtensions.cs" />
+     <None Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Runtime\Google.XR.ARCoreExtensions.asmdef" />
+ <Reference Include="Unity.XR.ARFoundation">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.ARSubsystems">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.ARCore">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -288,6 +341,21 @@
  </Reference>
  <Reference Include="websocket-sharp">
  <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandler">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.JarResolver_v1.2.122.0">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.JarResolver_v1.2.122.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandlerImpl_v1.2.122.0">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.122.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.IOSResolver_v1.2.122.0">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.122.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.Protobuf">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/Scripts/Internal/Analytics/Google.Protobuf.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Hub/Editor/2020.1.10f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -11,10 +11,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3896769C-D837-F011-CDE9-678A6A6DE970}</ProjectGuid>
+    <ProjectGuid>{D644B5C0-AB88-BDCD-3EED-2184257D03FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>PhotonBolt-Editor</AssemblyName>
+    <AssemblyName>Google.XR.ARCoreExtensions.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -55,12 +55,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Photon\PhotonBolt\editor\scripts\BoltWizardWindow.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\editor\scripts\BoltUtils.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\editor\scripts\BoltWizardWindowUtils.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\editor\scripts\AccountService.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\editor\scripts\BoltExecutionOrderManager.cs" />
-     <None Include="Assets\Photon\PhotonBolt\editor\scripts\PhotonBolt-Editor.asmdef" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\LogRequestUtils.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreAnalyticsGUI.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\CloudAnchorPreprocessBuild.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AndroidManifestMerger.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AssetHelper.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\DependentModules\DependentModulesManager.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\PropertyDrawers\DynamicHelpAttributeDrawer.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreAnalytics.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AndroidSupportPreprocessBuild.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\SceneUtils.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\PropertyDrawers\HelpAttributeDrawer.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ShellHelper.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\IOSSupportHelper.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreExtensionsProjectSettingsGUI.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AndroidDependenciesHelper.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreExtensionsProjectSettings.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\CustomizedManifestInjection.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\PropertyDrawers\EnumFlagsAttributeDrawer.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreAnalyticsProvider.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\Analytics\ArcoreSdkLog.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\Analytics\ArcoreClearcut.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\DependentModules\IDependentModule.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\IOSSupportPreprocessBuild.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AndroidKeylessPreprocessBuild.cs" />
+     <Compile Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreExtensionsProjectSettingsProvider.cs" />
+     <None Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\PlayServicesResolver\Editor\play-services-resolver_v1.2.122.0.txt" />
+     <None Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\BuildResources\ARCoreiOSDependencies.template" />
+     <None Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\Google.XR.ARCoreExtensions.Editor.asmdef" />
+     <None Include="\Users\jasonman\Documents\Final sem\Fyp\gitv2\Artery\arcore-unity-extensions-1.22.0\package\Editor\BuildResources\ARCoreAndroidKeylessDependencies.template" />
+ <Reference Include="Unity.XR.Management">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.Management.Editor">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.ARCore">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -306,6 +338,21 @@
  </Reference>
  <Reference Include="websocket-sharp">
  <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandler">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.JarResolver_v1.2.122.0">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.JarResolver_v1.2.122.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandlerImpl_v1.2.122.0">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.122.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.IOSResolver_v1.2.122.0">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.122.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.Protobuf">
+ <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/arcore-unity-extensions-1.22.0/package/Editor/Scripts/Internal/Analytics/Google.Protobuf.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>/Users/jasonman/Documents/Final sem/Fyp/gitv2/Artery/NewUnityProject/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -663,9 +710,9 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="PhotonBolt.csproj">
-      <Project>{B3BC2E46-0D90-F310-B1CC-5B29A8E3E1DE}</Project>
-      <Name>PhotonBolt</Name>
+    <ProjectReference Include="Google.XR.ARCoreExtensions.csproj">
+      <Project>{D2ABE5D6-73AE-E337-4311-94512EFC86F6}</Project>
+      <Name>Google.XR.ARCoreExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
