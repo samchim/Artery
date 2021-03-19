@@ -11,10 +11,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A5F0138B-CD9D-2DF5-6E39-105F9F368102}</ProjectGuid>
+    <ProjectGuid>{730BDEBD-2C3E-3EC2-1A49-40951AD6A2EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>PhotonBolt</AssemblyName>
+    <AssemblyName>Google.XR.ARCoreExtensions</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -55,31 +55,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Photon\PhotonBolt\scripts\BoltDebugStartSettings.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\scripts\BoltUnityDebugDrawer.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\scripts\BoltNetworkUtils.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\scripts\BoltDynamicData.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\scripts\BoltExecutionOrderAttribute.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\scripts\BoltDebugStart.cs" />
-     <Compile Include="Assets\Photon\PhotonBolt\scripts\BoltConsoleWriter.cs" />
-     <None Include="Assets\Photon\PhotonBolt\assemblies\bolt.xml" />
-     <None Include="Assets\Photon\PhotonBolt\editor\resources\backgrounds\ATTRIBUTION.txt" />
-     <None Include="Assets\Photon\PhotonBolt\release_history.txt" />
-     <None Include="Assets\Photon\PhotonBolt\assemblies\udpkit\udpkit.xml" />
-     <None Include="Assets\Photon\PhotonBolt\assemblies\editor\bolt.compiler.xml" />
-     <None Include="Assets\Photon\PhotonBolt\assemblies\udpkit\udpkit.platform.photon.xml" />
-     <None Include="Assets\Photon\PhotonBolt\bolt_sdk.txt" />
-     <None Include="Assets\Photon\PhotonBolt\assemblies\udpkit\udpkit.common.xml" />
-     <None Include="Assets\Photon\PhotonBolt\editor\resources\icons_welcome\ATTRIBUTION.txt" />
-     <None Include="Assets\Photon\PhotonBolt\assemblies\editor\protobuf-net.LICENSE.txt" />
-     <None Include="Assets\Photon\PhotonBolt\license.txt" />
-     <None Include="Assets\Photon\PhotonBolt\link.xml" />
-     <None Include="Assets\Photon\PhotonBolt\assemblies\editor\bolt.editor.xml" />
-     <None Include="Assets\Photon\PhotonBolt\packages\bolt_packages.txt" />
-     <None Include="Assets\Photon\PhotonBolt\PhotonBolt.asmdef" />
-     <None Include="Assets\Photon\PhotonBolt\README.txt" />
-     <None Include="Assets\Photon\PhotonBolt\assemblies\udpkit\udpkit.platform.dotnet.xml" />
-     <None Include="Assets\Photon\PhotonBolt\editor\resources\icons\ATTRIBUTION.txt" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiCloudAnchorState.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiPlaybackStatus.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARPlaybackManager.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CloudReferenceState.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiCloudAnchorMode.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Helpers\Translators.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CloudAnchorState.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\PlaybackStatus.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\CameraConfigFilterApi.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\PoseApi.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Helpers\DllImportNoop.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiArStatus.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\VersionInfo.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\CachedData.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\ARCoreHandles\ARCoreHandleExtensions.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\SessionApi.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCloudReferencePoint.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CameraConfigDepthSensorUsage.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\RecordingConfigApi.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARRecordingManager.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\RuntimeConfig.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCoreRecordingConfig.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiRecordingStatus.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\PropertyAttributes\HelpAttribute.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\RecordingStatus.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\XRCameraConfigurationExtensions.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\CameraConfigApi.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CameraConfigTargetFps.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiPose.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\PropertyAttributes\DynamicHelpAttribute.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\IOSSupportManager.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\RecordingResult.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\PlaybackResult.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCoreExtensionsConfig.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCoreExtensionsCameraConfigFilter.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Types\ApiTrackingState.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CameraConfigStereoCameraUsage.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\CloudAnchorMode.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\FeatureMapQuality.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARAnchorManagerExtensions.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\AndroidPermissionsManager.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\PropertyAttributes\EnumFlagsAttribute.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCloudAnchor.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\Wrappers\AnchorApi.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\Internal\ApiConstants.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Scripts\ARCoreExtensions.cs" />
+     <None Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Runtime\Google.XR.ARCoreExtensions.asmdef" />
+ <Reference Include="Unity.XR.ARFoundation">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.ARSubsystems">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.ARCore">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -668,12 +699,6 @@
  <Reference Include="System.Xml.Serialization">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{77E574AA-EF23-5554-18C9-DEE7994BAC36}</Project>
-      <Name>PhotonRealtime</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

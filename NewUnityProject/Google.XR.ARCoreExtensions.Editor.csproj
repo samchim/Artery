@@ -11,10 +11,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9E25C958-A19F-A2C1-DA5E-E2B6432D8CEA}</ProjectGuid>
+    <ProjectGuid>{D644B5C0-AB88-BDCD-3EED-2184257D03FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <AssemblyName>Google.XR.ARCoreExtensions.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -55,106 +55,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\EditorScripts.cs" />
-     <Compile Include="Assets\Editor\ManoMotionSetup.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\LogRequestUtils.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreAnalyticsGUI.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\CloudAnchorPreprocessBuild.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AndroidManifestMerger.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AssetHelper.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\DependentModules\DependentModulesManager.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\PropertyDrawers\DynamicHelpAttributeDrawer.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreAnalytics.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AndroidSupportPreprocessBuild.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\SceneUtils.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\PropertyDrawers\HelpAttributeDrawer.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ShellHelper.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\IOSSupportHelper.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreExtensionsProjectSettingsGUI.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AndroidDependenciesHelper.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreExtensionsProjectSettings.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\CustomizedManifestInjection.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\PropertyDrawers\EnumFlagsAttributeDrawer.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreAnalyticsProvider.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\Analytics\ArcoreSdkLog.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\Analytics\ArcoreClearcut.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\DependentModules\IDependentModule.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\IOSSupportPreprocessBuild.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\AndroidKeylessPreprocessBuild.cs" />
+     <Compile Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Scripts\Internal\ARCoreExtensionsProjectSettingsProvider.cs" />
+     <None Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\PlayServicesResolver\Editor\play-services-resolver_v1.2.122.0.txt" />
+     <None Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\BuildResources\ARCoreiOSDependencies.template" />
+     <None Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\Google.XR.ARCoreExtensions.Editor.asmdef" />
+     <None Include="D:\1HKU\Acadamic\FYP\AR Test_old\arcore-unity-extensions-1.22.0\package\Editor\BuildResources\ARCoreAndroidKeylessDependencies.template" />
+ <Reference Include="Unity.XR.Management">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.Management.Editor">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.ARCore">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
  <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.Management">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.ARKit">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Subsystem.Registration">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-hlapi.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.ARSubsystems">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.ARSubsystems.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.ARCore">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.Oculus">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.ARFoundation.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.Oculus.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.ARFoundation">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
- </Reference>
- <Reference Include="Unity.EditorCoroutines.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.ARCore.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-weaver.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.XR.LegacyInputHelpers">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.Management.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.SpatialTracking">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.XR.LegacyInputHelpers">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
- </Reference>
- <Reference Include="Unity.XR.ARKit.Editor">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-hlapi.Runtime">
- <HintPath>D:/1HKU/Acadamic/FYP/AR Test_old/NewUnityProject/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -752,33 +701,9 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{DE5D8CC4-3F56-D8F2-9FF8-418C8C44C763}</Project>
-      <Name>Assembly-CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonBolt.csproj">
-      <Project>{D86B9538-3653-ABBA-6CDB-0BF2F98D0DB0}</Project>
-      <Name>PhotonBolt</Name>
-    </ProjectReference>
     <ProjectReference Include="Google.XR.ARCoreExtensions.csproj">
       <Project>{15FCFF58-DB47-2FDC-03B8-FA0B7FD51237}</Project>
       <Name>Google.XR.ARCoreExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonWebSocket.csproj">
-      <Project>{B91078DE-28DE-D181-1690-E29AD3542B4A}</Project>
-      <Name>PhotonWebSocket</Name>
-    </ProjectReference>
-    <ProjectReference Include="Google.XR.ARCoreExtensions.Editor.csproj">
-      <Project>{F131B1BE-F1EF-679B-2E1B-8B195E0649BD}</Project>
-      <Name>Google.XR.ARCoreExtensions.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{77E574AA-EF23-5554-18C9-DEE7994BAC36}</Project>
-      <Name>PhotonRealtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonBolt-Editor.csproj">
-      <Project>{917E2C55-2AA7-D249-A8E4-4C0FA3426A96}</Project>
-      <Name>PhotonBolt-Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

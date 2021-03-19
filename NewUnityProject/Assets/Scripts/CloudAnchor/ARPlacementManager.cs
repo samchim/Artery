@@ -23,8 +23,6 @@ public class ARPlacementManager : MonoBehaviour
     private ARCloudAnchorManager arCloudAnchorManager = null;
     private ARDebugManager arDebugManager = null;
 
-    private bool hvBrokenAnchor = false;
-
     void Awake() 
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
@@ -95,14 +93,9 @@ public class ARPlacementManager : MonoBehaviour
 
         // if(placedGameObject != null)
         //     return;
-        if (brokenAnchor == 0){
-            hvBrokenAnchor = false;
-            if (numOfPlaced == arCloudAnchorManager.NUM_OF_ANCHOR)
-                return;
-        }else{
-            hvBrokenAnchor = true;
-        }
         
+        if (numOfPlaced == arCloudAnchorManager.NUM_OF_ANCHOR)
+            return;
 
         if(arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
@@ -115,9 +108,6 @@ public class ARPlacementManager : MonoBehaviour
             // this won't host the anchor just add a reference to be later host it
             arCloudAnchorManager.QueueAnchor(anchor);
             numOfPlaced ++;
-            if (hvBrokenAnchor){
-                brokenAnchor--;
-            }
         }
     }
 
