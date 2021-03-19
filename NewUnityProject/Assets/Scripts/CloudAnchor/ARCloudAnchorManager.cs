@@ -14,7 +14,7 @@ public class ARCloudAnchorManager : MonoBehaviour
     private float resolveAnchorPassedTimeout = 10.0f;
 
     [SerializeField]
-    private GameObject worldOriginPrefab;
+    public GameObject worldOrigin;
 
     [SerializeField]
     public int NUM_OF_ANCHOR = 3;
@@ -33,10 +33,9 @@ public class ARCloudAnchorManager : MonoBehaviour
     public int numOfQueued = 0;
     // public int NumOfCloudAnchor = 0;
     public int numOfToBeResolved = 0;
+    public int brokenAnchor = 0;
     private List<ARCloudAnchor> cloudAnchorList = new List<ARCloudAnchor>();
     private int i;
-    private int numOfCloudAnchor;
-    private GameObject worldOrigin = null;
 
     private ARPlacementManager arPlacementManager = null;
     private ARDebugManager arDebugManager = null;
@@ -55,7 +54,6 @@ public class ARCloudAnchorManager : MonoBehaviour
             anchorToResolveList.Add(null);
             cloudAnchorList.Add(null);
         }
-        worldOrigin = new GameObject();
     }
 
     private Pose GetCameraPose()
@@ -72,7 +70,9 @@ public class ARCloudAnchorManager : MonoBehaviour
         numOfQueued++;
     }
 
-    public void StartHostAnchor()
+
+
+    public void startHostAnchor()
     {
         FeatureMapQuality quality = arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
         for (i = 0; i < numOfQueued; i++)
@@ -94,7 +94,7 @@ public class ARCloudAnchorManager : MonoBehaviour
         {
             arDebugManager.LogError($"Unable to host cloud anchor #{(index + 1).ToString()}");
             numOfQueued--;
-
+            brokenAnchor++;
             // TODO: Remove the broken anchor and allow ARPlacementManger to add one new anchor to pendingHostAnchorList
         }
     }
@@ -207,14 +207,8 @@ public class ARCloudAnchorManager : MonoBehaviour
     }
 
     private float px, py, pz, qx, qy, qz, qw = 0;
-    private GameObject worldOriginTmp;
     private void AverageWorldOrigin()
     {
-         arDebugManager.LogInfo($"AverageWorldOrigin()");
-        if (worldOrigin != new GameObject()){
-            Destroy(worldOrigin);
-            worldOrigin = new GameObject();
-        }
         px = 0;
         py = 0;
         pz = 0;
@@ -222,12 +216,10 @@ public class ARCloudAnchorManager : MonoBehaviour
         qy = 0;
         qz = 0;
         qw = 0;
-        numOfCloudAnchor = NumOfCloudAnchor();
         for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
-            if (cloudAnchorList[i] != null)
+            if (!cloudAnchorList[i].Equals(null))
             {
-                arDebugManager.LogInfo($"AverageWorldOrigin on anchor #{(i+1)}");
                 px += cloudAnchorList[i].transform.position.x;
                 py += cloudAnchorList[i].transform.position.y;
                 pz += cloudAnchorList[i].transform.position.z;
@@ -235,17 +227,10 @@ public class ARCloudAnchorManager : MonoBehaviour
                 qy += cloudAnchorList[i].transform.rotation.y;
                 qz += cloudAnchorList[i].transform.rotation.z;
                 qw += cloudAnchorList[i].transform.rotation.w;
-                arDebugManager.LogInfo($"{px}, {py}, {pz}, {qx}, {qy}, {qz}, {qw}");
             }
         }
-
-        Vector3 worldOriginPostion = new Vector3(px / (float)numOfCloudAnchor, py / (float)numOfCloudAnchor, pz / (float)numOfCloudAnchor);
-        Quaternion worldOriginRotation = new Quaternion(qx / (float)numOfCloudAnchor, qy / (float)numOfCloudAnchor, qz / (float)numOfCloudAnchor, qw / (float)numOfCloudAnchor);
-        arDebugManager.LogInfo($"Position: {worldOriginPostion.ToString()}");
-        arDebugManager.LogInfo($"Rotation: {worldOriginRotation.ToString()}");
-        worldOrigin = Instantiate(worldOriginPrefab) as GameObject;
-        worldOrigin.transform.position = worldOriginPostion;
-        worldOrigin.transform.rotation = worldOriginRotation;
+        worldOrigin.transform.position = new Vector3(px / numOfToBeResolved, py / numOfToBeResolved, pz / numOfToBeResolved);
+        worldOrigin.transform.rotation = new Quaternion(qx / numOfToBeResolved, qy / numOfToBeResolved, qz / numOfToBeResolved, qw / numOfToBeResolved);
     }
 
     #endregion
