@@ -384,6 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba694048938d3459fb6e6ccbcab777d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: CloudAnchorBolt
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

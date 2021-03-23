@@ -1,60 +1,35 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.XR.ARCoreExtensions", "Google.XR.ARCoreExtensions.csproj", "{730BDEBD-2C3E-3EC2-1A49-40951AD6A2EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{e1b2f3db-900d-0929-f21e-611088eaa85d}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{DBF3B2E1-0D90-2909-F21E-611088EAA85D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonBolt", "PhotonBolt.csproj", "{8b13f0a5-9dcd-f52d-6e39-105f9f368102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonBolt", "PhotonBolt.csproj", "{A5F0138B-CD9D-2DF5-6E39-105F9F368102}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonRealtime", "PhotonRealtime.csproj", "{d346b6e2-8a10-90a9-9960-0e2dbccc2280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonRealtime", "PhotonRealtime.csproj", "{E2B646D3-108A-A990-9960-0E2DBCCC2280}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonWebSocket", "PhotonWebSocket.csproj", "{5a23fb98-52ae-a5f2-5ff9-6acf4769cb28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonWebSocket", "PhotonWebSocket.csproj", "{98FB235A-AE52-F2A5-5FF9-6ACF4769CB28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonBolt-Editor", "PhotonBolt-Editor.csproj", "{9c769638-37d8-11f0-cde9-678a6a6de970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.XR.ARCoreExtensions.Editor", "Google.XR.ARCoreExtensions.Editor.csproj", "{D644B5C0-AB88-BDCD-3EED-2184257D03FA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonBolt-Editor", "PhotonBolt-Editor.csproj", "{3896769C-D837-F011-CDE9-678A6A6DE970}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{9E25C958-A19F-A2C1-DA5E-E2B6432D8CEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{58c9259e-9fa1-c1a2-da5e-e2b6432d8cea}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{730BDEBD-2C3E-3EC2-1A49-40951AD6A2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{730BDEBD-2C3E-3EC2-1A49-40951AD6A2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{730BDEBD-2C3E-3EC2-1A49-40951AD6A2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{730BDEBD-2C3E-3EC2-1A49-40951AD6A2EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBF3B2E1-0D90-2909-F21E-611088EAA85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBF3B2E1-0D90-2909-F21E-611088EAA85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBF3B2E1-0D90-2909-F21E-611088EAA85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBF3B2E1-0D90-2909-F21E-611088EAA85D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5F0138B-CD9D-2DF5-6E39-105F9F368102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5F0138B-CD9D-2DF5-6E39-105F9F368102}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5F0138B-CD9D-2DF5-6E39-105F9F368102}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5F0138B-CD9D-2DF5-6E39-105F9F368102}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2B646D3-108A-A990-9960-0E2DBCCC2280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2B646D3-108A-A990-9960-0E2DBCCC2280}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2B646D3-108A-A990-9960-0E2DBCCC2280}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2B646D3-108A-A990-9960-0E2DBCCC2280}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98FB235A-AE52-F2A5-5FF9-6ACF4769CB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98FB235A-AE52-F2A5-5FF9-6ACF4769CB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98FB235A-AE52-F2A5-5FF9-6ACF4769CB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98FB235A-AE52-F2A5-5FF9-6ACF4769CB28}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D644B5C0-AB88-BDCD-3EED-2184257D03FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D644B5C0-AB88-BDCD-3EED-2184257D03FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D644B5C0-AB88-BDCD-3EED-2184257D03FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D644B5C0-AB88-BDCD-3EED-2184257D03FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3896769C-D837-F011-CDE9-678A6A6DE970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3896769C-D837-F011-CDE9-678A6A6DE970}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3896769C-D837-F011-CDE9-678A6A6DE970}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3896769C-D837-F011-CDE9-678A6A6DE970}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E25C958-A19F-A2C1-DA5E-E2B6432D8CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E25C958-A19F-A2C1-DA5E-E2B6432D8CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E25C958-A19F-A2C1-DA5E-E2B6432D8CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E25C958-A19F-A2C1-DA5E-E2B6432D8CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{e1b2f3db-900d-0929-f21e-611088eaa85d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e1b2f3db-900d-0929-f21e-611088eaa85d}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8b13f0a5-9dcd-f52d-6e39-105f9f368102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8b13f0a5-9dcd-f52d-6e39-105f9f368102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d346b6e2-8a10-90a9-9960-0e2dbccc2280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d346b6e2-8a10-90a9-9960-0e2dbccc2280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5a23fb98-52ae-a5f2-5ff9-6acf4769cb28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5a23fb98-52ae-a5f2-5ff9-6acf4769cb28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9c769638-37d8-11f0-cde9-678a6a6de970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9c769638-37d8-11f0-cde9-678a6a6de970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58c9259e-9fa1-c1a2-da5e-e2b6432d8cea}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58c9259e-9fa1-c1a2-da5e-e2b6432d8cea}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,10 +7,12 @@ using Bolt.Matchmaking;
 using UdpKit;
 using UdpKit.Platform;
 
-// hello form my window machine
-
+// [BoltGlobalBehaviour]
 public class Menu : GlobalEventListener
 {
+    [SerializeField]
+    private string sceneToLoad = "CloudAnchorBolt";
+
     // Start is called before the first frame update
     public void StartServer()
     {
@@ -26,14 +28,12 @@ public class Menu : GlobalEventListener
     {
       if (BoltNetwork.IsServer) 
       {
-        BoltMatchmaking.CreateSession(sessionID: "test", sceneToLoad: "Game");
+        BoltMatchmaking.CreateSession(sessionID: "test", sceneToLoad: sceneToLoad);
       }
 
       // BoltNetwork.EnableLanBroadcast();
     }
 
-
-    // Update is called once per frame
     public void StartClient()
     {
       //determine if the player is the server or the client
@@ -42,7 +42,9 @@ public class Menu : GlobalEventListener
 
     public override void SessionListUpdated(Map<Guid, UdpSession> sessionList)
     {
-      foreach (var session in sessionList)
+        Debug.Log($"Session List Updated, found {sessionList.Count} session");
+
+        foreach (var session in sessionList)
         {
             UdpSession photonSession = session.Value as UdpSession;
 
@@ -51,7 +53,7 @@ public class Menu : GlobalEventListener
                 BoltMatchmaking.JoinSession(photonSession);
             }
         }
+        Debug.Log("The whole list is invalid");
     }
-
 
 }

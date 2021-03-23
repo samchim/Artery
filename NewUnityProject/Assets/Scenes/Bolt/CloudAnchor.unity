@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 125715476}
   - component: {fileID: 125715475}
   - component: {fileID: 125715479}
+  - component: {fileID: 125715474}
   - component: {fileID: 125715480}
   m_Layer: 0
   m_Name: AR Session Origin
@@ -174,6 +175,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &125715474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125715471}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035d6acc10be51944aca96a259191c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 1576012489}
+  resolveAnchorPassedTimeout: 10
+  worldOriginPrefab: {fileID: 5900839525179497917, guid: 0647a41646e22be419ca63603575016a,
+    type: 3}
+  NUM_OF_ANCHOR: 3
+  cloudAnchorsMetaBoltPrefab: {fileID: 898811117247518752, guid: 246b109ad6eab5343b31ce5e135f6b13,
+    type: 3}
+  numOfQueued: 0
+  numOfUnable: 0
+  numOfFailed: 0
+  numOfSuccess: 0
+  numOfToBeResolved: 0
 --- !u!114 &125715475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,11 +284,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arCamera: {fileID: 1576012489}
-  resolveAnchorPassedTimeout: 1
-  worldOriginPrefab: {fileID: 4037801164931699263, guid: ee54351420be87942926db811bfaa5d2,
+  resolveAnchorPassedTimeout: 10
+  worldOriginPrefab: {fileID: 5900839525179497917, guid: 0647a41646e22be419ca63603575016a,
     type: 3}
   NUM_OF_ANCHOR: 3
   numOfQueued: 0
+  numOfUnable: 0
+  numOfFailed: 0
+  numOfSuccess: 0
   numOfToBeResolved: 0
 --- !u!1 &259743901
 GameObject:
@@ -347,7 +375,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 125715480}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ARCloudAnchorManager, Assembly-CSharp
         m_MethodName: StartResolve
         m_Mode: 1
@@ -651,7 +679,6 @@ GameObject:
   - component: {fileID: 1317130866}
   - component: {fileID: 1317130865}
   - component: {fileID: 1317130864}
-  - component: {fileID: 1317130863}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -659,18 +686,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1317130863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317130862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba694048938d3459fb6e6ccbcab777d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1317130864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1500,7 +1515,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 125715480}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ARCloudAnchorManager, Assembly-CSharp
         m_MethodName: StartHostAnchor
         m_Mode: 1

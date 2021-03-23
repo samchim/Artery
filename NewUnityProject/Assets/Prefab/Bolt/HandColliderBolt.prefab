@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2899556351951050562}
   - component: {fileID: 1277245269607594999}
   m_Layer: 0
-  m_Name: Hand Collider Bolt
+  m_Name: HandColliderBolt
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneGuid: 
-  _serializerGuid: 59c907e2-5a0e-4d64-a471-19b9fcbb8169
-  _prefabId: 1
+  _serializerGuid: 0d7c8ea3-38ad-4bfd-adbb-a091767cdd49
+  _prefabId: 2
   _updateRate: 1
   _autoFreezeProxyFrames: 0
   _clientPredicted: 1
