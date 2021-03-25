@@ -20,8 +20,8 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     [SerializeField]
     public int NUM_OF_ANCHOR = 3;
 
-    [SerializeField]
-    private GameObject cloudAnchorsMetaBoltPrefab;
+    // [SerializeField]
+    // private GameObject cloudAnchorsMetaBoltPrefab;
 
     private float safeToResolvePassed = 0;
     private bool anchorUpdateInProgress = false;
@@ -41,7 +41,7 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     private GameObject worldOrigin = null;
 
     private GameObject cloudAnchorsMetaBolt;
-    private CloudAnchorsMetaManager cloudAnchorsMetaManager = null;
+    private CloudAnchorsMetaManager _cloudAnchorsMetaManager = null;
 
     private UnityEvent<Transform, int> resolver = null;
     private ARAnchorManager _arAnchorManager = null;
@@ -65,6 +65,10 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         worldOrigin = new GameObject();
     }
 
+    private void Start()
+    {
+    }
+
     private Pose GetCameraPose()
     {
         return new Pose(arCamera.transform.position,
@@ -81,6 +85,9 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
 
     public void StartHostAnchor()
     {
+        _cloudAnchorsMetaManager = GameObject.FindWithTag("CloudAnchorsMetaBolt").GetComponent<CloudAnchorsMetaManager>();
+        _cloudAnchorsMetaManager.confirmimg();
+
         _arDebugManager.LogInfo($"Start Host Anchor, numOfQueued = {numOfQueued}");
         quality = _arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
         for (i = 0; i < numOfQueued; i++)
@@ -145,11 +152,9 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
             anchorUpdateInProgress = false;
             numOfToBeResolved = numOfSuccess;
 
-            cloudAnchorsMetaBolt = BoltNetwork.Instantiate(cloudAnchorsMetaBoltPrefab);
-            cloudAnchorsMetaManager = cloudAnchorsMetaBolt.GetComponent<CloudAnchorsMetaManager>();
-            // TODO
-            cloudAnchorsMetaManager.join((int)quality);
-            cloudAnchorsMetaManager.uploadAnchorToResolveList(anchorToResolveList);
+            // _cloudAnchorsMetaManager.join((int)quality);
+            _cloudAnchorsMetaManager.join();
+            _cloudAnchorsMetaManager.uploadAnchorToResolveList(anchorToResolveList);
 
             _arDebugManager.LogError($"Cloud Anchors ID uploaded to session");
         }
@@ -158,13 +163,16 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     public void StartResolve()
     {
         // numOfToBeResolved = NUM_OF_ANCHOR;
-        cloudAnchorsMetaManager = cloudAnchorsMetaBolt.GetComponent<CloudAnchorsMetaManager>();
-        if (cloudAnchorsMetaManager == null)
+
+        _cloudAnchorsMetaManager = GameObject.FindWithTag("CloudAnchorsMetaBolt").GetComponent<CloudAnchorsMetaManager>();
+        _arDebugManager.LogInfo(_cloudAnchorsMetaManager.confirmimg());
+
+        if (_cloudAnchorsMetaManager == null)
         {
             _arDebugManager.LogError($"There is no Cloud Anchors to be resolve from the session");
             return;
         }
-        anchorToResolveList = cloudAnchorsMetaManager.downloadAnchorToResolveList();
+        anchorToResolveList = _cloudAnchorsMetaManager.downloadAnchorToResolveList();
 
         _arDebugManager.LogInfo($"Start Resolve Anchor, numOfToBeResolved = {numOfToBeResolved}");
         for (i = 0; i < NUM_OF_ANCHOR; i++)

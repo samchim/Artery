@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bolt/Menu.unity
     guid: 7a6a9a056dd337447a047566aaddd428
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Bolt/Game.unity
     guid: b9647d4978884446587de4844abf18e9
   - enabled: 0

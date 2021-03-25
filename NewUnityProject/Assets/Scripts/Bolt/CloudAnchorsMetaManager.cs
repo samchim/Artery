@@ -9,27 +9,33 @@ public class CloudAnchorsMetaManager : Bolt.EntityBehaviour<ICloudAnchorsMeta>
 
     private int NUM_OF_ANCHOR = 3;
 
-    [SerializeField]
-    private List<string> players = new List<string>();
-
-    [SerializeField]
-    private List<string> cloudAnchorsID = new List<string>();
-
+    public List<string> players = new List<string>();
+    public List<int> qualites = new List<int>();
+    public List<string> anchors = new List<string>();
 
     private void Awake() {
-        for (int i = 0; i < NUM_OF_ANCHOR; i++)
-        {
+        for (int i =0; i < 4; i++){
             players.Add(null);
-            cloudAnchorsID.Add(null);
+            qualites.Add(0);
+        }
+        for (int i =0; i < 3; i++){
+            anchors.Add(null);
         }
     }
 
-    public string join(int quality)
+    public string confirmimg(){
+        Debug.Log("_cloudAnchorsMetaManager successfully hocked");
+        return "_cloudAnchorsMetaManager successfully hocked";
+    }
+
+    // public string join(int quality)
+    public string join()
     {
         string id = "P" + (numOfPlayer + 1);
         state.Players[numOfPlayer] = id;
-        state.Qualities[numOfPlayer] = quality;
+        // state.Qualities[numOfPlayer] = quality;
         players[numOfPlayer] = id;
+        // qualites[numOfPlayer] = quality;        
         numOfPlayer++;
         numOfPlayer = numOfPlayer % NUM_OF_ANCHOR;
         return (id);
@@ -39,8 +45,8 @@ public class CloudAnchorsMetaManager : Bolt.EntityBehaviour<ICloudAnchorsMeta>
     {
         for (int i = 0; i < NUM_OF_ANCHOR; i++)
         {
-            cloudAnchorsID[i] = anchorToResolveList[i];
             state.CloudAnchorsID[i] = anchorToResolveList[i];
+            anchors[i] = anchorToResolveList[i];
         }
     }
 

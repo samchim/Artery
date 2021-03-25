@@ -7,6 +7,9 @@ TagManager:
   - baseSDK
   - GameBase
   - ARPlane
+  - ExampleBlock
+  - particle
+  - CloudAnchorsMetaBolt
   layers:
   - Default
   - TransparentFX

@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 125715475}
   - component: {fileID: 125715474}
   - component: {fileID: 125715479}
+  - component: {fileID: 125715480}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -191,8 +192,6 @@ MonoBehaviour:
   worldOriginPrefab: {fileID: 5900839525179497917, guid: 0647a41646e22be419ca63603575016a,
     type: 3}
   NUM_OF_ANCHOR: 3
-  cloudAnchorsMetaBoltPrefab: {fileID: 898811117247518752, guid: 246b109ad6eab5343b31ce5e135f6b13,
-    type: 3}
   numOfQueued: 0
   numOfUnable: 0
   numOfFailed: 0
@@ -269,6 +268,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arCamera: {fileID: 1576012489}
   placedPrefab: {fileID: 5197932727105514753, guid: 2b743f2b886f57a4c9e34036bc23146e,
+    type: 3}
+--- !u!114 &125715480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125715471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac9569b1c72df143a6af2d3aa890474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudAnchorsMetaBoltPrefab: {fileID: 898811117247518752, guid: 246b109ad6eab5343b31ce5e135f6b13,
     type: 3}
 --- !u!1 &259743901
 GameObject:
@@ -643,6 +656,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1013957240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013957242}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013957242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013957240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540, y: 960, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317130862
 GameObject:

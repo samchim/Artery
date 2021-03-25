@@ -67,6 +67,7 @@
      <Compile Include="Assets\Manomotion\UIBlurEffect\Scripts\Grayscale.cs" />
      <Compile Include="Assets\Scripts\moveRelativeToCamera.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\CubeSpawn.cs" />
+     <Compile Include="Assets\Scripts\Bolt\ARPlacementManagerBolt.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\IconMainMenu.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\Session.cs" />
      <Compile Include="Assets\Scripts\CloudAnchor\ARDebugManager.cs" />
@@ -91,6 +92,7 @@
      <Compile Include="Assets\Scripts\moveByDrag.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Scripts\HowToAnimations.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\GestureInfo.cs" />
+     <Compile Include="Assets\Scripts\CloudAnchor\ARPlacementManagerWithIndicator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
      <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\StarController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
@@ -143,8 +145,7 @@
      <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Scripts\Extensions\BlockUIExtensions.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\SpawnPoint.cs" />
-     <Compile Include="Assets\Scripts\CloudAnchor\ARPlacementManagerWithIndicator.cs" />
-     <Compile Include="Assets\Scripts\Bolt\ARPlacementManagerBolt.cs" />
+     <Compile Include="Assets\Scripts\Bolt\CloudAnchorsNetworkCallbacks.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
