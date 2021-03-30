@@ -4,8 +4,9 @@ using UnityEngine;
 using Google.XR.ARCoreExtensions;
 using UnityEngine.Events;
 using UnityEngine.XR.ARFoundation;
+using Bolt;
 
-public class ARCloudAnchorManagerBolt : MonoBehaviour
+public class ARCloudAnchorManagerBoltOld : MonoBehaviour
 {
     [SerializeField]
     private Camera arCamera = null;
@@ -19,37 +20,42 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     [SerializeField]
     public int NUM_OF_ANCHOR = 3;
 
-    // private ARAnchor pendingHostAnchor = null;
-    // private ARCloudAnchor cloudAnchor = null;
-    // private string anchorToResolve;
+    // [SerializeField]
+    // private GameObject cloudAnchorsMetaBoltPrefab;
+
+    private float safeToResolvePassed = 0;
     private bool anchorUpdateInProgress = false;
     private bool anchorResolveInProgress = false;
-    private float safeToResolvePassed = 0;
-    private UnityEvent<Transform, int> resolver = null;
 
     private List<ARAnchor> pendingHostAnchorList = new List<ARAnchor>();
     private List<string> anchorToResolveList = new List<string>();
+    private string anchorToResolve = "";
     public int numOfQueued = 0;
     public int numOfUnable = 0;
     public int numOfFailed = 0;
     public int numOfSuccess = 0;
-    // public int NumOfCloudAnchor = 0;
     public int numOfToBeResolved = 0;
     private List<ARCloudAnchor> cloudAnchorList = new List<ARCloudAnchor>();
     private int i;
     private int numOfCloudAnchor;
+    private FeatureMapQuality quality;
     private GameObject worldOrigin = null;
 
+    private GameObject cloudAnchorsMetaBolt;
+    private CloudAnchorsMetaManagerOld _cloudAnchorsMetaManager = null;
+
+    private UnityEvent<Transform, int> resolver = null;
     private ARAnchorManager _arAnchorManager = null;
-    private ARPlacementManagerBolt _arPlacementManager = null;
+    private ARPlacementManager _arPlacementManager = null;
     private ARDebugManager _arDebugManager = null;
-    private CloudAnchorsMetaManager _arCloudAnchorsMetaManger = null;
+
+
 
     private void Awake()
     {
-        _arPlacementManager = GetComponent<ARPlacementManagerBolt>();
+        _arPlacementManager = GetComponent<ARPlacementManager>();
         _arDebugManager = GetComponent<ARDebugManager>();
-        _arCloudAnchorsMetaManger = GetComponent<CloudAnchorsMetaManager>();
+        // _arAnchorManager = GetComponent<ARAnchorManager>();
 
         resolver = new UnityEvent<Transform, int>();
         resolver.AddListener((t, i) => _arPlacementManager.ReCreatePlacement(t, i));
@@ -63,6 +69,10 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         worldOrigin = new GameObject();
     }
 
+    private void Start()
+    {
+    }
+
     private Pose GetCameraPose()
     {
         return new Pose(arCamera.transform.position,
@@ -71,22 +81,19 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
 
     #region Anchor Cycle
 
-    public void hi()
-    {
-        _arDebugManager.LogInfo($"hi, this is ARCloudAnchorManagerBolt.cs");
-    }
-
     public void QueueAnchor(ARAnchor arAnchor)
     {
-        _arDebugManager.LogInfo($"new Anchor placed #{numOfQueued+1}");
         pendingHostAnchorList[numOfQueued] = arAnchor;
         numOfQueued++;
     }
 
     public void StartHostAnchor()
     {
+        _cloudAnchorsMetaManager = GameObject.FindWithTag("CloudAnchorsMetaBolt").GetComponent<CloudAnchorsMetaManagerOld>();
+        _arDebugManager.LogInfo(_cloudAnchorsMetaManager.confirmimg());
+
         _arDebugManager.LogInfo($"Start Host Anchor, numOfQueued = {numOfQueued}");
-        FeatureMapQuality quality = _arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
+        quality = _arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
         for (i = 0; i < numOfQueued; i++)
         {
             anchorToResolveList[i] = null;
@@ -128,17 +135,12 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
                     _arDebugManager.LogError($"Fail to host anchor #{(i + 1).ToString()} with state: {cloudAnchorState}");
                     numOfFailed++;
                 }
-                else
-                {
-                    // arDebugManager.LogInfo($"CheckHostingProgress #{(i + 1).ToString()}");
-                    // arDebugManager.LogInfo($"#{(i + 1).ToString()}: NumOfCloudAnchor() = {NumOfCloudAnchor().ToString()}");
-                }
             }
             else
             {
                 numOfUnable++;
+                // _arDebugManager.LogError($"Firsttttttttt #{(i + 1).ToString()}, numOfUnable ={numOfUnable}");
                 _arDebugManager.LogError($"Unable to host cloud anchor #{(i + 1).ToString()}, numOfUnable ={numOfUnable}");
-                // TODO: Remove the broken anchor and allow ARPlacementManger to add one new anchor to pendingHostAnchorList
             }
 
         }
@@ -155,19 +157,34 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
             anchorUpdateInProgress = false;
             numOfToBeResolved = numOfSuccess;
 
+            // _cloudAnchorsMetaManager.join((int)quality);
+            // _cloudAnchorsMetaManager.join();
+            // _cloudAnchorsMetaManager.uploadAnchorToResolveList(anchorToResolveList);
+
             for (i = 0; i < numOfSuccess; i++)
             {
-                _arDebugManager.LogError($"Anchor #{(i + 1).ToString()} successfully hosted");
+                _arDebugManager.LogError($"Anchor #{(i + 1).ToString()} successfully hosted, id = {anchorToResolveList[i]}");
             }
 
-            _arCloudAnchorsMetaManger.SendUpdate(anchorToResolveList);
+            _arDebugManager.LogError($"Cloud Anchors ID uploaded to session");
         }
     }
 
     public void StartResolve()
     {
         // numOfToBeResolved = NUM_OF_ANCHOR;
-        anchorToResolveList = _arCloudAnchorsMetaManger.getLocalCloudAnchorIdList();
+
+        _cloudAnchorsMetaManager = GameObject.FindWithTag("CloudAnchorsMetaBolt").GetComponent<CloudAnchorsMetaManagerOld>();
+        if (_cloudAnchorsMetaManager == null)
+        {
+            _arDebugManager.LogError($"There is no Cloud Anchors to be resolve from the session");
+            return;
+        }
+        else
+        {
+            _arDebugManager.LogInfo(_cloudAnchorsMetaManager.confirmimg());
+        }
+        // anchorToResolveList = _cloudAnchorsMetaManager.downloadAnchorToResolveList();
 
         _arDebugManager.LogInfo($"Start Resolve Anchor, numOfToBeResolved = {numOfToBeResolved}");
         for (i = 0; i < NUM_OF_ANCHOR; i++)
@@ -185,15 +202,13 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     {
         _arDebugManager.LogInfo($"Resolve executing #{index + 1} id #{anchorToResolveList[index]}");
 
+        anchorToResolve = anchorToResolveList[index];
+        cloudAnchorList[index] = _arAnchorManager.ResolveCloudAnchorId(anchorToResolve);
 
-        cloudAnchorList[index] = _arAnchorManager.ResolveCloudAnchorId(anchorToResolveList[index]);
-
-        // if (cloudAnchorList[index] == null)
-        // {
-        //     arDebugManager.LogError($"Failed to resolve cloud achor #{index + 1} id {cloudAnchorList[index].cloudAnchorId}");
-        //     // TODO
-        //     numOfToBeResolved--;
-        // }
+        if (cloudAnchorList[index] == null)
+        {
+            _arDebugManager.LogInfo($"Resolve result #{index + 1} is null, id #{anchorToResolve}");
+        }
     }
 
     private void CheckResolveProgress()
@@ -206,7 +221,7 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
             _arDebugManager.LogInfo($"#{i + 1}");
             try
             {
-                if (cloudAnchorList[i])
+                if (cloudAnchorList[i] != null)
                 {
                     CloudAnchorState cloudAnchorState = cloudAnchorList[i].cloudAnchorState;
 
@@ -231,13 +246,13 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
                 else
                 {
                     numOfUnable++;
-                    _arDebugManager.LogError($"Unable to resolve cloud achor #{i + 1} id {cloudAnchorList[i].cloudAnchorId}, numOfUnable = {numOfUnable}");
+                    _arDebugManager.LogError($"Unable to resolve cloud achor #{i + 1} id {cloudAnchorList[i].cloudAnchorId}");
                 }
             }
             catch (System.NullReferenceException e)
             {
                 numOfUnable++;
-                _arDebugManager.LogError($"Unable to resolve cloud achor #{i + 1} id {cloudAnchorList[i].cloudAnchorId}, numOfUnable = {numOfUnable}");
+                _arDebugManager.LogError($"Catch error during resolve cloud achor #{i + 1} id {cloudAnchorList[i].cloudAnchorId}");
             }
         }
 

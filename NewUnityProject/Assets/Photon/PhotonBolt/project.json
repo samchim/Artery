@@ -16,7 +16,8 @@
             "ElementCount": 3,
             "ElementType": {
               "$type": "Bolt.Compiler.PropertyTypeString, bolt.compiler",
-              "MaxLength": 140
+              "MaxLength": 140,
+              "Encoding": 1
             }
           },
           "AssetSettings": {
@@ -60,7 +61,8 @@
             "ElementCount": 4,
             "ElementType": {
               "$type": "Bolt.Compiler.PropertyTypeString, bolt.compiler",
-              "MaxLength": 10
+              "MaxLength": 10,
+              "Encoding": 1
             }
           },
           "AssetSettings": {
@@ -299,6 +301,94 @@
       },
       "Name": "CubeState",
       "Guid": "0d7c8ea3-38ad-4bfd-adbb-a091767cdd49",
+      "Groups": []
+    },
+    {
+      "$type": "Bolt.Compiler.EventDefinition, bolt.compiler",
+      "Properties": [
+        {
+          "Name": "Index",
+          "Enabled": true,
+          "Expanded": true,
+          "ReplicationMode": 1,
+          "Priority": 1,
+          "PropertyType": {
+            "$type": "Bolt.Compiler.PropertyTypeInteger, bolt.compiler",
+            "MaxValue": 255
+          },
+          "AssetSettings": {
+            "$type": "Bolt.Compiler.PropertyEventSettings, bolt.compiler"
+          }
+        },
+        {
+          "Name": "PlayerID",
+          "Enabled": true,
+          "Expanded": true,
+          "ReplicationMode": 1,
+          "Priority": 1,
+          "PropertyType": {
+            "$type": "Bolt.Compiler.PropertyTypeString, bolt.compiler",
+            "MaxLength": 10,
+            "Encoding": 1
+          },
+          "AssetSettings": {
+            "$type": "Bolt.Compiler.PropertyEventSettings, bolt.compiler"
+          }
+        },
+        {
+          "Name": "Quality",
+          "Enabled": true,
+          "Expanded": true,
+          "ReplicationMode": 1,
+          "Priority": 1,
+          "PropertyType": {
+            "$type": "Bolt.Compiler.PropertyTypeInteger, bolt.compiler",
+            "MaxValue": 255
+          },
+          "AssetSettings": {
+            "$type": "Bolt.Compiler.PropertyEventSettings, bolt.compiler"
+          }
+        }
+      ],
+      "Name": "JoinEvent",
+      "Guid": "23c2b04d-97f1-4b19-8121-f79de6447a0c",
+      "Groups": []
+    },
+    {
+      "$type": "Bolt.Compiler.EventDefinition, bolt.compiler",
+      "Properties": [
+        {
+          "Name": "Index",
+          "Enabled": true,
+          "Expanded": true,
+          "ReplicationMode": 1,
+          "Priority": 1,
+          "PropertyType": {
+            "$type": "Bolt.Compiler.PropertyTypeInteger, bolt.compiler",
+            "MaxValue": 255
+          },
+          "AssetSettings": {
+            "$type": "Bolt.Compiler.PropertyEventSettings, bolt.compiler"
+          }
+        },
+        {
+          "Name": "CloudAnchorID",
+          "Enabled": true,
+          "Expanded": true,
+          "ReplicationMode": 1,
+          "Priority": 1,
+          "PropertyType": {
+            "$type": "Bolt.Compiler.PropertyTypeString, bolt.compiler",
+            "MaxLength": 140,
+            "Encoding": 1
+          },
+          "AssetSettings": {
+            "$type": "Bolt.Compiler.PropertyEventSettings, bolt.compiler"
+          }
+        }
+      ],
+      "Name": "UpdateCloudAnchorIdEvent",
+      "Guid": "867e595f-f15c-4503-b557-bcd05f1c93e4",
       "Groups": []
     }
   ],

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2020758208072811419}
   - component: {fileID: 5248214789328019271}
   m_Layer: 0
-  m_Name: CloudAnchorsMetaBolt
+  m_Name: CloudAnchorsMetaBoltOld
   m_TagString: CloudAnchorsMetaBolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,6 +73,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472814124a5881c45bfe35d99651ae26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
-  qualites: 
-  anchors: []
+  localPlayerIdList: []
+  localQualitiesList: 
+  localCloudAnchorIdList: []

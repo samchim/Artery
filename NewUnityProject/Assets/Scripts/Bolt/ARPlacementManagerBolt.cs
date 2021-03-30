@@ -20,17 +20,17 @@ public class ARPlacementManagerBolt : MonoBehaviour
 
     private ARRaycastManager _arRaycastManager = null;
     private ARAnchorManager _arAnchorManager = null;
-    private ARCloudAnchorManagerBolt _arCloudAnchorManagerBolt = null;
+    private ARCloudAnchorManagerBolt _arCloudAnchorManager = null;
     private ARDebugManager _arDebugManager = null;
 
     void Awake() 
     {
         _arRaycastManager = GetComponent<ARRaycastManager>();
         _arAnchorManager = GetComponent<ARAnchorManager>();
-        _arCloudAnchorManagerBolt = GetComponent<ARCloudAnchorManagerBolt>();
+        _arCloudAnchorManager = GetComponent<ARCloudAnchorManagerBolt>();
         _arDebugManager = GetComponent<ARDebugManager>();
 
-        for (int i = 0; i < _arCloudAnchorManagerBolt.NUM_OF_ANCHOR; i++)
+        for (int i = 0; i < _arCloudAnchorManager.NUM_OF_ANCHOR; i++)
         {
             placedGameObjectList.Add(new GameObject());
         }
@@ -78,13 +78,13 @@ public class ARPlacementManagerBolt : MonoBehaviour
         // Destroy(placedGameObject);
         // placedGameObject = null;
         _arDebugManager.LogInfo($"RemovePlacements");
-        for (int i = 0; i < _arCloudAnchorManagerBolt.NUM_OF_ANCHOR; i++)
+        for (int i = 0; i < _arCloudAnchorManager.NUM_OF_ANCHOR; i++)
         {
             Destroy(placedGameObjectList[i]);
             _arDebugManager.LogInfo($"RemovePlacements #{i}");
             placedGameObjectList[i] = new GameObject();
         }
-        _arCloudAnchorManagerBolt.numOfQueued = 0;
+        _arCloudAnchorManager.numOfQueued = 0;
         numOfPlaced = 0;
     }
 
@@ -96,19 +96,20 @@ public class ARPlacementManagerBolt : MonoBehaviour
         // if(placedGameObject != null)
         //     return;
         
-        if (numOfPlaced == _arCloudAnchorManagerBolt.NUM_OF_ANCHOR)
+        if (numOfPlaced == _arCloudAnchorManager.NUM_OF_ANCHOR)
             return;
 
         if(_arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             var hitPose = hits[0].pose;
             placedGameObjectTmp = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
-            placedGameObjectList[_arCloudAnchorManagerBolt.numOfQueued] = placedGameObjectTmp;
+            placedGameObjectList[_arCloudAnchorManager.numOfQueued] = placedGameObjectTmp;
             var anchor = _arAnchorManager.AddAnchor(new Pose(hitPose.position, hitPose.rotation));
-            placedGameObjectList[_arCloudAnchorManagerBolt.numOfQueued].transform.parent = anchor.transform;
+            placedGameObjectList[_arCloudAnchorManager.numOfQueued].transform.parent = anchor.transform;
 
+            // _arCloudAnchorManager.hi();
             // this won't host the anchor just add a reference to be later host it
-            _arCloudAnchorManagerBolt.QueueAnchor(anchor);
+            _arCloudAnchorManager.QueueAnchor(anchor);
             numOfPlaced ++;
         }
     }

@@ -111,6 +111,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+     <Compile Include="Assets\Scripts\Bolt\CloudAnchorsNetworkCallbacks.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\HandInfoUnity.cs" />
      <Compile Include="Assets\Manomotion\UIBlurEffect\Scripts\GrabPass.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Instructions\DetectionInstruction.cs" />
@@ -145,7 +146,9 @@
      <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Scripts\Extensions\BlockUIExtensions.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\SpawnPoint.cs" />
-     <Compile Include="Assets\Scripts\Bolt\CloudAnchorsNetworkCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Bolt\ARPlacementManagerBoltOld.cs" />
+     <Compile Include="Assets\Scripts\Bolt\ARCloudAnchorManagerBoltOld.cs" />
+     <Compile Include="Assets\Scripts\Bolt\CloudAnchorsMetaManagerOld.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

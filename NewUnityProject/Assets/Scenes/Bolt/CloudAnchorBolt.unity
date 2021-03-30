@@ -137,9 +137,12 @@ GameObject:
   - component: {fileID: 125715477}
   - component: {fileID: 125715476}
   - component: {fileID: 125715475}
-  - component: {fileID: 125715474}
-  - component: {fileID: 125715479}
   - component: {fileID: 125715480}
+  - component: {fileID: 125715482}
+  - component: {fileID: 125715481}
+  - component: {fileID: 125715479}
+  - component: {fileID: 125715474}
+  - component: {fileID: 125715483}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -184,19 +187,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 125715471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 035d6acc10be51944aca96a259191c09, type: 3}
+  m_Script: {fileID: 11500000, guid: a33c4bb6181ab884f85956614d81e431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   arCamera: {fileID: 1576012489}
-  resolveAnchorPassedTimeout: 10
-  worldOriginPrefab: {fileID: 5900839525179497917, guid: 0647a41646e22be419ca63603575016a,
+  placedPrefab: {fileID: 5197932727105514753, guid: 2b743f2b886f57a4c9e34036bc23146e,
     type: 3}
-  NUM_OF_ANCHOR: 3
-  numOfQueued: 0
-  numOfUnable: 0
-  numOfFailed: 0
-  numOfSuccess: 0
-  numOfToBeResolved: 0
 --- !u!114 &125715475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 1111123408835602848, guid: d17ae1c1cbab1c14e9eb21f2bc9b1935,
     type: 3}
-  m_DetectionMode: -1
+  m_DetectionMode: 1
 --- !u!114 &125715478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,12 +259,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 125715471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a33c4bb6181ab884f85956614d81e431, type: 3}
+  m_Script: {fileID: 11500000, guid: 035d6acc10be51944aca96a259191c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   arCamera: {fileID: 1576012489}
-  placedPrefab: {fileID: 5197932727105514753, guid: 2b743f2b886f57a4c9e34036bc23146e,
+  resolveAnchorPassedTimeout: 10
+  worldOriginPrefab: {fileID: 8279902217266875305, guid: 4cb01d86775362b46bdc1e2fe909f001,
     type: 3}
+  NUM_OF_ANCHOR: 3
+  numOfQueued: 0
+  numOfUnable: 0
+  numOfFailed: 0
+  numOfSuccess: 0
+  numOfToBeResolved: 0
 --- !u!114 &125715480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +286,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloudAnchorsMetaBoltPrefab: {fileID: 898811117247518752, guid: 246b109ad6eab5343b31ce5e135f6b13,
     type: 3}
+  cloudAnchorsMetaBolt: {fileID: 0}
+--- !u!114 &125715481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125715471}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55dbfa4d07cfb754a9b98d4bea36dbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 1576012489}
+  placedPrefab: {fileID: 7015499301452802225, guid: 0a5a899c52c479942b5cd0db2aec2308,
+    type: 3}
+--- !u!114 &125715482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125715471}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81d2254812747445b2caeb99aad9fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 1576012489}
+  resolveAnchorPassedTimeout: 10
+  worldOriginPrefab: {fileID: 8279902217266875305, guid: 4cb01d86775362b46bdc1e2fe909f001,
+    type: 3}
+  NUM_OF_ANCHOR: 3
+  numOfQueued: 0
+  numOfUnable: 0
+  numOfFailed: 0
+  numOfSuccess: 0
+  numOfToBeResolved: 0
+--- !u!114 &125715483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125715471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472814124a5881c45bfe35d99651ae26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPlayerIdList: []
+  localQualitiesList: 
+  localCloudAnchorIdList: []
 --- !u!1 &259743901
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +421,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 125715474}
+      - m_Target: {fileID: 125715479}
         m_TargetAssemblyTypeName: ARCloudAnchorManagerBolt, Assembly-CSharp
         m_MethodName: StartResolve
         m_Mode: 1
@@ -656,36 +712,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1013957240
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1013957242}
-  m_Layer: 0
-  m_Name: Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1013957242
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013957240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540, y: 960, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317130862
 GameObject:
@@ -1403,7 +1429,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 125715479}
+      - m_Target: {fileID: 125715474}
         m_TargetAssemblyTypeName: ARPlacementManagerBolt, Assembly-CSharp
         m_MethodName: RemovePlacements
         m_Mode: 1
@@ -1535,7 +1561,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 125715474}
+      - m_Target: {fileID: 125715479}
         m_TargetAssemblyTypeName: ARCloudAnchorManagerBolt, Assembly-CSharp
         m_MethodName: StartHostAnchor
         m_Mode: 1

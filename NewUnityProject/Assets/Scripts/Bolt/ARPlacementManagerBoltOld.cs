@@ -4,7 +4,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(ARRaycastManager))]
-public class ARPlacementManager : MonoBehaviour
+public class ARPlacementManagerBoltOld : MonoBehaviour
 { 
     [SerializeField]
     private Camera arCamera;
@@ -20,17 +20,17 @@ public class ARPlacementManager : MonoBehaviour
 
     private ARRaycastManager _arRaycastManager = null;
     private ARAnchorManager _arAnchorManager = null;
-    private ARCloudAnchorManager _arCloudAnchorManager = null;
+    private ARCloudAnchorManagerBolt _arCloudAnchorManagerBolt = null;
     private ARDebugManager _arDebugManager = null;
 
     void Awake() 
     {
         _arRaycastManager = GetComponent<ARRaycastManager>();
         _arAnchorManager = GetComponent<ARAnchorManager>();
-        _arCloudAnchorManager = GetComponent<ARCloudAnchorManager>();
+        _arCloudAnchorManagerBolt = GetComponent<ARCloudAnchorManagerBolt>();
         _arDebugManager = GetComponent<ARDebugManager>();
 
-        for (int i = 0; i < _arCloudAnchorManager.NUM_OF_ANCHOR; i++)
+        for (int i = 0; i < _arCloudAnchorManagerBolt.NUM_OF_ANCHOR; i++)
         {
             placedGameObjectList.Add(new GameObject());
         }
@@ -59,7 +59,7 @@ public class ARPlacementManager : MonoBehaviour
         {
             var touch = Input.GetTouch(0);
             // _arDebugManager.LogInfo($"touch: {touch.position.ToString()}, {touch.phase.ToString()}");
-            Debug.Log($"touch: {touch.position.ToString()}, {touch.phase.ToString()}");
+            // Debug.Log($"touch: {touch.position.ToString()}, {touch.phase.ToString()}");
             if(touch.phase == TouchPhase.Began)
             {
                 touchPosition = touch.position;
@@ -78,13 +78,13 @@ public class ARPlacementManager : MonoBehaviour
         // Destroy(placedGameObject);
         // placedGameObject = null;
         _arDebugManager.LogInfo($"RemovePlacements");
-        for (int i = 0; i < _arCloudAnchorManager.NUM_OF_ANCHOR; i++)
+        for (int i = 0; i < _arCloudAnchorManagerBolt.NUM_OF_ANCHOR; i++)
         {
             Destroy(placedGameObjectList[i]);
             _arDebugManager.LogInfo($"RemovePlacements #{i}");
             placedGameObjectList[i] = new GameObject();
         }
-        _arCloudAnchorManager.numOfQueued = 0;
+        _arCloudAnchorManagerBolt.numOfQueued = 0;
         numOfPlaced = 0;
     }
 
@@ -96,20 +96,19 @@ public class ARPlacementManager : MonoBehaviour
         // if(placedGameObject != null)
         //     return;
         
-        if (numOfPlaced == _arCloudAnchorManager.NUM_OF_ANCHOR)
+        if (numOfPlaced == _arCloudAnchorManagerBolt.NUM_OF_ANCHOR)
             return;
 
         if(_arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             var hitPose = hits[0].pose;
             placedGameObjectTmp = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
-            placedGameObjectList[_arCloudAnchorManager.numOfQueued] = placedGameObjectTmp;
+            placedGameObjectList[_arCloudAnchorManagerBolt.numOfQueued] = placedGameObjectTmp;
             var anchor = _arAnchorManager.AddAnchor(new Pose(hitPose.position, hitPose.rotation));
-            placedGameObjectList[_arCloudAnchorManager.numOfQueued].transform.parent = anchor.transform;
+            placedGameObjectList[_arCloudAnchorManagerBolt.numOfQueued].transform.parent = anchor.transform;
 
-            // _arCloudAnchorManager.hi();
             // this won't host the anchor just add a reference to be later host it
-            _arCloudAnchorManager.QueueAnchor(anchor);
+            _arCloudAnchorManagerBolt.QueueAnchor(anchor);
             numOfPlaced ++;
         }
     }

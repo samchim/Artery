@@ -2,62 +2,78 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Bolt;
+using Google.XR.ARCoreExtensions;
+using UnityEngine.Events;
+using UnityEngine.XR.ARFoundation;
 
-public class CloudAnchorsMetaManager : Bolt.EntityBehaviour<ICloudAnchorsMeta>
+[BoltGlobalBehaviour]
+public class CloudAnchorsMetaManager : GlobalEventListener
 {
+    public List<string> localPlayerIdList = new List<string>();
+    public List<int> localQualitiesList = new List<int>(); 
+    public List<string> localCloudAnchorIdList = new List<string>();
+
+    private int NUM_OF_ANCHOR = 0;
+    private int NUM_OF_MAX_PLAYER = 4;
     private int numOfPlayer = 0;
+    private int i;
 
-    private int NUM_OF_ANCHOR = 3;
-
-    public List<string> players = new List<string>();
-    public List<int> qualites = new List<int>();
-    public List<string> anchors = new List<string>();
+    private ARCloudAnchorManagerBolt _arCloudAnchorManager = null;
 
     private void Awake() {
-        for (int i =0; i < 4; i++){
-            players.Add(null);
-            qualites.Add(0);
+        _arCloudAnchorManager = GetComponent<ARCloudAnchorManagerBolt>();
+
+        NUM_OF_ANCHOR = _arCloudAnchorManager.NUM_OF_ANCHOR;
+
+        for (i = 0; i< NUM_OF_MAX_PLAYER; i++)
+        {
+            localPlayerIdList.Add(null);
+            localQualitiesList.Add(-1);
         }
-        for (int i =0; i < 3; i++){
-            anchors.Add(null);
+
+        for (i = 0; i< NUM_OF_ANCHOR; i++)
+        {
+            localCloudAnchorIdList.Add(null);
         }
     }
 
-    public string confirmimg(){
-        Debug.Log("_cloudAnchorsMetaManager successfully hocked");
-        return "_cloudAnchorsMetaManager successfully hocked";
-    }
-
-    // public string join(int quality)
-    public string join()
+    public void SendJoin(int quality)
     {
+        JoinEvent join = JoinEvent.Create();
         string id = "P" + (numOfPlayer + 1);
-        state.Players[numOfPlayer] = id;
-        // state.Qualities[numOfPlayer] = quality;
-        players[numOfPlayer] = id;
-        // qualites[numOfPlayer] = quality;        
-        numOfPlayer++;
-        numOfPlayer = numOfPlayer % NUM_OF_ANCHOR;
-        return (id);
+        join.Index = numOfPlayer; 
+        join.PlayerID = id;
+        join.Quality = quality;
+        join.Send();
     }
 
-    public void uploadAnchorToResolveList(List<string> anchorToResolveList)
+    public override void OnEvent(JoinEvent evnt)
     {
-        for (int i = 0; i < NUM_OF_ANCHOR; i++)
+        localPlayerIdList[evnt.Index] = evnt.PlayerID;
+        localQualitiesList[evnt.Index] = evnt.Quality;
+        numOfPlayer += 1;
+    }
+
+    public void SendUpdate(List<string> cloudAnchorIdList)
+    {
+        for (i =0; i < NUM_OF_ANCHOR; i++)
         {
-            state.CloudAnchorsID[i] = anchorToResolveList[i];
-            anchors[i] = anchorToResolveList[i];
+            UpdateCloudAnchorIdEvent updateCloudAnchorId = UpdateCloudAnchorIdEvent.Create();
+            updateCloudAnchorId.Index = i;
+            updateCloudAnchorId.CloudAnchorID = cloudAnchorIdList[i];
+            updateCloudAnchorId.Send();
         }
     }
 
-    public List<string> downloadAnchorToResolveList()
+    public override void OnEvent(UpdateCloudAnchorIdEvent evnt)
     {
-        List<string> output = new List<string>();
-        for (int i = 0; i < NUM_OF_ANCHOR; i++)
-        {
-            output.Add(state.CloudAnchorsID[i]);
-        }
+        localCloudAnchorIdList[evnt.Index] = evnt.CloudAnchorID;
+    }
 
-        return output;
+    public List<string> getLocalCloudAnchorIdList()
+    {
+        List<string> localCloudAnchorIdListTmp = new List<string>(localCloudAnchorIdList.ToArray());
+
+        return localCloudAnchorIdListTmp;
     }
 }
