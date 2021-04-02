@@ -58,6 +58,7 @@ public class CloudAnchorsMetaManager : GlobalEventListener
     {
         for (i =0; i < NUM_OF_ANCHOR; i++)
         {
+            localCloudAnchorIdList[i] = cloudAnchorIdList[i];
             UpdateCloudAnchorIdEvent updateCloudAnchorId = UpdateCloudAnchorIdEvent.Create();
             updateCloudAnchorId.Index = i;
             updateCloudAnchorId.CloudAnchorID = cloudAnchorIdList[i];
