@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\VisualizationInfo.cs" />
      <Compile Include="Assets\Manomotion\Scripts\ManoVisualization\ManoVisualization.cs" />
+     <Compile Include="Assets\Scripts\Bolt\CloudAnchorsMetaManagerOld.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\UIIconBehavior.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Util Tools\ManoUtils.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Scripts\ApplicationManager.cs" />
@@ -46,6 +47,7 @@
      <Compile Include="Assets\Scripts\Bolt\CloudAnchorsMetaManager.cs" />
      <Compile Include="Assets\Manomotion\Scripts\ManoVisualization\BoundingBox.cs" />
      <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\NetworkManagerUIController.cs" />
+     <Compile Include="Assets\Scripts\Bolt\ARPlacementManagerBoltOld.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Util Tools\ManoEvents.cs" />
      <Compile Include="Assets\ManoMotion ARFoundation\Examples\Inetraction\Scripts\ARCubeInteraction.cs" />
      <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\SafeAreaScaler.cs" />
@@ -97,6 +99,7 @@
      <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\StarController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\InputManagerBaseClass.cs" />
+     <Compile Include="Assets\Scripts\Bolt\ARCloudAnchorManagerBoltOld.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
@@ -146,9 +149,7 @@
      <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Scripts\Extensions\BlockUIExtensions.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\SpawnPoint.cs" />
-     <Compile Include="Assets\Scripts\Bolt\ARPlacementManagerBoltOld.cs" />
-     <Compile Include="Assets\Scripts\Bolt\ARCloudAnchorManagerBoltOld.cs" />
-     <Compile Include="Assets\Scripts\Bolt\CloudAnchorsMetaManagerOld.cs" />
+     <Compile Include="Assets\Scripts\Bolt\CubeBehaviour.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

@@ -166,7 +166,7 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
 
     public void StartResolve()
     {
-        // numOfToBeResolved = NUM_OF_ANCHOR;
+        numOfToBeResolved = NUM_OF_ANCHOR;
         anchorToResolveList = _arCloudAnchorsMetaManger.getLocalCloudAnchorIdList();
 
         _arDebugManager.LogInfo($"Start Resolve Anchor, numOfToBeResolved = {numOfToBeResolved}");

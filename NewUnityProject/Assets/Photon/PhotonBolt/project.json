@@ -387,6 +387,7 @@
           }
         }
       ],
+      "EntitySenders": 3,
       "Name": "UpdateCloudAnchorIdEvent",
       "Guid": "867e595f-f15c-4503-b557-bcd05f1c93e4",
       "Groups": []
