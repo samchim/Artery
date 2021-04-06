@@ -886,6 +886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hand Collider
       objectReference: {fileID: 0}
+    - target: {fileID: 8279902217266875305, guid: 4cb01d86775362b46bdc1e2fe909f001,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8279902217266875306, guid: 4cb01d86775362b46bdc1e2fe909f001,
         type: 3}
       propertyPath: smoothingFrame

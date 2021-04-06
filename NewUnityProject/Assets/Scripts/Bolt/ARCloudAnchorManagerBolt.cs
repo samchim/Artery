@@ -38,18 +38,24 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     private List<ARCloudAnchor> cloudAnchorList = new List<ARCloudAnchor>();
     private int i;
     private int numOfCloudAnchor;
+
+    private GameObject[] _arPlanes;
     private GameObject worldOrigin = null;
+    private float px, py, pz, qx, qy, qz, qw = 0;
+    private GameObject worldOriginTmp;
 
     private ARAnchorManager _arAnchorManager = null;
     private ARPlacementManagerBolt _arPlacementManager = null;
     private ARDebugManager _arDebugManager = null;
     private CloudAnchorsMetaManager _arCloudAnchorsMetaManger = null;
+    private ARPlaneManager _arPlaneManger = null;
 
     private void Awake()
     {
         _arPlacementManager = GetComponent<ARPlacementManagerBolt>();
         _arDebugManager = GetComponent<ARDebugManager>();
         _arCloudAnchorsMetaManger = GetComponent<CloudAnchorsMetaManager>();
+        _arPlaneManger = GetComponent<ARPlaneManager>();
 
         resolver = new UnityEvent<Transform, int>();
         resolver.AddListener((t, i) => _arPlacementManager.ReCreatePlacement(t, i));
@@ -253,8 +259,19 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         if (numOfSuccess == numOfToBeResolved)
         {
             anchorResolveInProgress = false;
-            AverageWorldOrigin();
+            StartGame();
         }
+    }
+
+    private void StartGame()
+    {
+        AverageWorldOrigin();
+        _arPlaneManger.enabled = false;
+        _arPlanes = GameObject.FindGameObjectsWithTag("ARPlane");
+        foreach (GameObject ARPlane in _arPlanes) {
+            ARPlane.SetActive(false);
+        }
+        _arPlacementManager.DeactivatePlacement();
     }
 
     private int NumOfCloudAnchor()
@@ -271,8 +288,6 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         return n;
     }
 
-    private float px, py, pz, qx, qy, qz, qw = 0;
-    private GameObject worldOriginTmp;
     private void AverageWorldOrigin()
     {
         _arDebugManager.LogInfo($"AverageWorldOrigin()");

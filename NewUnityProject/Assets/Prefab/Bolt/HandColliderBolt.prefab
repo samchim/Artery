@@ -131,6 +131,7 @@ MonoBehaviour:
   linearWeightedMovingAverage: 0
   currentPosition: {x: 0, y: 0, z: 0}
   smoothedPostion: {x: 0, y: 0, z: 0}
+  manomotionManager: {fileID: 0}
 --- !u!114 &1277245269607594999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneGuid: 
   _serializerGuid: 0d7c8ea3-38ad-4bfd-adbb-a091767cdd49
-  _prefabId: 2
+  _prefabId: 4
   _updateRate: 1
   _autoFreezeProxyFrames: 0
   _clientPredicted: 1

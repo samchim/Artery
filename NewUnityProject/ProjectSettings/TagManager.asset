@@ -10,6 +10,7 @@ TagManager:
   - ExampleBlock
   - particle
   - CloudAnchorsMetaBolt
+  - WorldOrigin
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,7 @@ public class ARPlacementManagerBolt : MonoBehaviour
 
     private ARRaycastManager _arRaycastManager = null;
     private ARAnchorManager _arAnchorManager = null;
+    // [SerializeField]
     private ARCloudAnchorManagerBolt _arCloudAnchorManager = null;
     private ARDebugManager _arDebugManager = null;
 
@@ -27,8 +28,11 @@ public class ARPlacementManagerBolt : MonoBehaviour
     {
         _arRaycastManager = GetComponent<ARRaycastManager>();
         _arAnchorManager = GetComponent<ARAnchorManager>();
-        _arCloudAnchorManager = GetComponent<ARCloudAnchorManagerBolt>();
         _arDebugManager = GetComponent<ARDebugManager>();
+        _arCloudAnchorManager = GetComponent<ARCloudAnchorManagerBolt>();
+
+        // _arDebugManager.LogInfo($"NUM_OF_ANCHOR from editor = {_arCloudAnchorManager.NUM_OF_ANCHOR}");
+        // _arDebugManager.LogInfo($"NUM_OF_ANCHOR from Awake = {GetComponent<ARCloudAnchorManagerBolt>().NUM_OF_ANCHOR}");
 
         for (int i = 0; i < _arCloudAnchorManager.NUM_OF_ANCHOR; i++)
         {
@@ -86,6 +90,14 @@ public class ARPlacementManagerBolt : MonoBehaviour
         }
         _arCloudAnchorManager.numOfQueued = 0;
         numOfPlaced = 0;
+    }
+
+    public void DeactivatePlacement()
+    {
+        for (int i = 0; i < _arCloudAnchorManager.NUM_OF_ANCHOR; i++)
+        {
+            placedGameObjectList[i].SetActive(false);
+        }
     }
 
     void Update()

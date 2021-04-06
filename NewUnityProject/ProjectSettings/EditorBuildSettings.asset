@@ -32,9 +32,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Bolt/CloudAnchor.unity
     guid: a6317499186e3ed4b900365f5b83803d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Bolt/CloudAnchorBolt.unity
     guid: 45a6e248a54753d4d8dc22a6354fe4fd
+  - enabled: 0
+    path: Assets/Scenes/Bolt/CloudAnchorBoltManomotion_old.unity
+    guid: 60fef437db84a6f4393626a97bd033ea
+  - enabled: 1
+    path: Assets/Scenes/Bolt/CloudAnchorBoltManomotion.unity
+    guid: 4d134a3368ebed049aba96fe91c715e1
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a6d49f8378c267e4f8854c0045109fa9,
       type: 2}

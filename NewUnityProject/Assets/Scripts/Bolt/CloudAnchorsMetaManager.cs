@@ -10,7 +10,7 @@ using UnityEngine.XR.ARFoundation;
 public class CloudAnchorsMetaManager : GlobalEventListener
 {
     public List<string> localPlayerIdList = new List<string>();
-    public List<int> localQualitiesList = new List<int>(); 
+    public List<int> localQualitiesList = new List<int>();
     public List<string> localCloudAnchorIdList = new List<string>();
 
     private int NUM_OF_ANCHOR = 0;
@@ -20,18 +20,19 @@ public class CloudAnchorsMetaManager : GlobalEventListener
 
     private ARCloudAnchorManagerBolt _arCloudAnchorManager = null;
 
-    private void Awake() {
+    private void Awake()
+    {
         _arCloudAnchorManager = GetComponent<ARCloudAnchorManagerBolt>();
 
         NUM_OF_ANCHOR = _arCloudAnchorManager.NUM_OF_ANCHOR;
 
-        for (i = 0; i< NUM_OF_MAX_PLAYER; i++)
+        for (i = 0; i < NUM_OF_MAX_PLAYER; i++)
         {
             localPlayerIdList.Add(null);
             localQualitiesList.Add(-1);
         }
 
-        for (i = 0; i< NUM_OF_ANCHOR; i++)
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
             localCloudAnchorIdList.Add(null);
         }
@@ -41,7 +42,7 @@ public class CloudAnchorsMetaManager : GlobalEventListener
     {
         JoinEvent join = JoinEvent.Create();
         string id = "P" + (numOfPlayer + 1);
-        join.Index = numOfPlayer; 
+        join.Index = numOfPlayer;
         join.PlayerID = id;
         join.Quality = quality;
         join.Send();
@@ -56,7 +57,7 @@ public class CloudAnchorsMetaManager : GlobalEventListener
 
     public void SendUpdate(List<string> cloudAnchorIdList)
     {
-        for (i =0; i < NUM_OF_ANCHOR; i++)
+        for (i = 0; i < NUM_OF_ANCHOR; i++)
         {
             localCloudAnchorIdList[i] = cloudAnchorIdList[i];
             UpdateCloudAnchorIdEvent updateCloudAnchorId = UpdateCloudAnchorIdEvent.Create();
@@ -76,5 +77,13 @@ public class CloudAnchorsMetaManager : GlobalEventListener
         List<string> localCloudAnchorIdListTmp = new List<string>(localCloudAnchorIdList.ToArray());
 
         return localCloudAnchorIdListTmp;
+    }
+
+    public override void Connected(BoltConnection connection)
+    {
+        if (BoltNetwork.IsServer)
+        {
+            SendUpdate(localCloudAnchorIdList);
+        }
     }
 }

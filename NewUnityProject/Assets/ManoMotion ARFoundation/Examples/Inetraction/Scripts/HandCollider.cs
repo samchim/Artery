@@ -37,6 +37,8 @@ public class HandCollider : MonoBehaviour
     private Vector3[] smoothingBufferArray;
     private float trianglurNumber;
 
+    public ManomotionManager manomotionManager;
+
     /// <summary>
     /// Set the hand collider tag.
     /// </summary>
@@ -52,7 +54,9 @@ public class HandCollider : MonoBehaviour
             ySum = 0;
             zSum = 0;
         }
-        trianglurNumber = smoothingFrame*(smoothingFrame+1)/2;
+        trianglurNumber = smoothingFrame * (smoothingFrame + 1) / 2;
+
+        manomotionManager = GameObject.Find("ManomotionManager").GetComponent<ManomotionManager>();
     }
 
     /// <summary>
@@ -60,29 +64,36 @@ public class HandCollider : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        tracking = ManomotionManager.Instance.Hand_infos[0].hand_info.tracking_info;
-        currentPosition = Camera.main.ViewportToWorldPoint(new Vector3(tracking.palm_center.x, tracking.palm_center.y, tracking.depth_estimation));
-        
-        // transform.position = currentPosition;
-        if (movingAverage)
+        try
         {
-            smoothedPostion = MovingAverage(currentPosition);
-        }
-        else if (linearWeightedMovingAverage)
+            tracking = ManomotionManager.Instance.Hand_infos[0].hand_info.tracking_info;
+
+            currentPosition = Camera.main.ViewportToWorldPoint(new Vector3(tracking.palm_center.x, tracking.palm_center.y, tracking.depth_estimation));
+
+            // transform.position = currentPosition;
+            if (movingAverage)
+            {
+                smoothedPostion = MovingAverage(currentPosition);
+            }
+            else if (linearWeightedMovingAverage)
+            {
+                smoothedPostion = LinearWeightedMovingAverage(currentPosition);
+            }
+            else
+            {
+                smoothedPostion = currentPosition;
+            }
+
+            transform.position = smoothedPostion;
+            Debug.Log("Both Before and After: (" + currentPosition.x.ToString() + ", " + currentPosition.y.ToString() + ", " + currentPosition.z.ToString() + "), (" + smoothedPostion.x.ToString() + ", " + smoothedPostion.y.ToString() + ", " + smoothedPostion.z.ToString() + ")");
+            Debug.Log("Before Only: " + currentPosition.x.ToString() + ", " + currentPosition.y.ToString() + ", " + currentPosition.z.ToString() + ")");
+            Debug.Log("After Only: " + smoothedPostion.x.ToString() + ", " + smoothedPostion.y.ToString() + ", " + smoothedPostion.z.ToString() + ")");
+        } catch (System.NullReferenceException e)
         {
-            smoothedPostion = LinearWeightedMovingAverage(currentPosition);
+            Debug.Log($"No tracking, manomotionManager = {manomotionManager}");
         }
-        else
-        {
-            smoothedPostion = currentPosition;
-        }
-        
-        transform.position = smoothedPostion;
-        Debug.Log("Both Before and After: (" + currentPosition.x.ToString()+", "+ currentPosition.y.ToString() +", "+ currentPosition.z.ToString() + "), (" + smoothedPostion.x.ToString()+", "+ smoothedPostion.y.ToString() +", "+ smoothedPostion.z.ToString() + ")");
-        Debug.Log("Before Only: " +currentPosition.x.ToString()+", "+ currentPosition.y.ToString() +", "+ currentPosition.z.ToString() + ")");
-        Debug.Log("After Only: " +smoothedPostion.x.ToString()+", "+ smoothedPostion.y.ToString() +", "+ smoothedPostion.z.ToString() + ")");
     }
-    
+
     Vector3 MovingAverage(Vector3 current)
     {
         droping = smoothingBuffer.Dequeue();
@@ -107,12 +118,12 @@ public class HandCollider : MonoBehaviour
         ySum = 0;
         zSum = 0;
         smoothingBufferArray = smoothingBuffer.ToArray();
-        
+
         for (i = 0; i < smoothingFrame; i++)
         {
-            xSum += smoothingBufferArray[i].x * (i+1);
-            ySum += smoothingBufferArray[i].y * (i+1);
-            zSum += smoothingBufferArray[i].z * (i+1);
+            xSum += smoothingBufferArray[i].x * (i + 1);
+            ySum += smoothingBufferArray[i].y * (i + 1);
+            zSum += smoothingBufferArray[i].z * (i + 1);
         }
 
         return new Vector3(xSum / trianglurNumber, ySum / trianglurNumber, zSum / trianglurNumber);
@@ -123,12 +134,12 @@ public class HandCollider : MonoBehaviour
         collidings.Add(other);
     }
 
-    void OnTriggerExit(Collider other) 
+    void OnTriggerExit(Collider other)
     {
-        collidings.Remove(other);    
+        collidings.Remove(other);
     }
 
-    public int getCollidingsCount() 
+    public int getCollidingsCount()
     {
         return collidings.Count;
     }
