@@ -65,6 +65,7 @@ public class ARCubeInteractionBolt : Bolt.EntityBehaviour<IARCubeState>
                 transform.position = colliding.transform.position + collidingOffset;
             }
         }
+        gameObject.GetComponent<Rigidbody>().isKinematic = state.IsKinematic;
     }
 
     private void FixedUpdate()
@@ -96,7 +97,7 @@ public class ARCubeInteractionBolt : Bolt.EntityBehaviour<IARCubeState>
                         Debug.Log("Action: stick with hand");
                         colliding = other.gameObject;
                         collidingOffset = transform.TransformPoint(Vector3.zero) - other.transform.TransformPoint(Vector3.zero);
-                        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        state.IsKinematic = true;
                     }
                     else
                     {
@@ -122,7 +123,7 @@ public class ARCubeInteractionBolt : Bolt.EntityBehaviour<IARCubeState>
     {
         colliding = null;
         collidingOffset = Vector3.zero;
-        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        state.IsKinematic = false;
     }
 
     /// <summary>

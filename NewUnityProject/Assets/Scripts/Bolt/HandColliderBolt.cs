@@ -76,14 +76,16 @@ public class HandColliderBolt : Bolt.EntityBehaviour<IHandColliderState>
         pinch = ManoGestureContinuous.HOLD_GESTURE;
 
         worldOrigin = GameObject.FindGameObjectWithTag("WorldOrigin");
-        worldOriginOffsetPosition = worldOrigin.transform.position;
-        worldOriginOffsetRotaion = worldOrigin.transform.rotation;
+        // worldOriginOffsetPosition = worldOrigin.transform.position;
+        // worldOriginOffsetRotaion = worldOrigin.transform.rotation;
         // transform.rotation = worldOriginOffsetRotaion;
+        // transform.rotation = worldOrigin.transform.InverseTransformDirection(Vector3.zero);
     }
 
     public override void Attached()
     {
         state.SetTransforms(state.HandColliderTransform, transform);
+        transform.parent = worldOrigin.transform;
     }
 
     /// <summary>
@@ -99,7 +101,7 @@ public class HandColliderBolt : Bolt.EntityBehaviour<IHandColliderState>
                 // TODO!!! offset the currentPosition
                 currentPosition = Camera.main.ViewportToWorldPoint(new Vector3(tracking.palm_center.x, tracking.palm_center.y, tracking.depth_estimation));
                 // currentScenePosition = Camera.main.ViewportToWorldPoint(new Vector3(tracking.palm_center.x, tracking.palm_center.y, tracking.depth_estimation));
-                // currentPosition = currentScenePosition - worldOriginOffsetPosition;
+                // currentPosition = worldOrigin.transform.InverseTransformPoint(currentScenePosition);
 
                 // transform.position = currentPosition;
                 if (movingAverage)

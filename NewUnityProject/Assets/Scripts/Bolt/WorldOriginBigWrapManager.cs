@@ -20,7 +20,7 @@ public class WorldOriginBigWrapManager : GlobalEventListener
     private GameObject[] handColliderList = null;
 
     [SerializeField]
-    private Vector3 worldOriginPosition = new Vector3(0, 0, 0);
+    private Vector3 worldOriginPosition = new Vector3(0, 0, 40);
     [SerializeField]
     private Quaternion worldOriginRotation = new Quaternion(0, 0, 0, 0);
 
@@ -58,10 +58,10 @@ public class WorldOriginBigWrapManager : GlobalEventListener
         arCubeList = GameObject.FindGameObjectsWithTag("ARCube");
         for (i = 0; i < arCubeList.Length; i++)
         {
-            arCubeList[i].transform.parent = worldOrigin.transform;
+            arCubeList[i].transform.parent = bigWrap.transform;
         }
         gameBase = GameObject.FindGameObjectWithTag("GameBase");
-        gameBase.transform.parent = worldOrigin.transform;
+        gameBase.transform.parent = bigWrap.transform;
 
         handColliderList = GameObject.FindGameObjectsWithTag("Player");
         if (myHandCollider == null)
@@ -73,11 +73,9 @@ public class WorldOriginBigWrapManager : GlobalEventListener
     }
 
     public override void OnEvent(ConnectEvent evnt)
-    {
-        
+    {   
         for (i = 0; i < handColliderList.Length; i++){
             handColliderList[i].transform.parent = worldOrigin.transform;
-            // handColliderList[i].transform.rotation = worldOrigin.transform.rotation;
         }
     }
 
