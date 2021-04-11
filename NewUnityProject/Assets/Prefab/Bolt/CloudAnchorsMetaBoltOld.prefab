@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneGuid: 
   _serializerGuid: 7e1f3e82-a20d-4c1d-9bc4-9d8ad34b033a
-  _prefabId: 3
+  _prefabId: 4
   _updateRate: 1
   _autoFreezeProxyFrames: 0
   _clientPredicted: 1
@@ -76,3 +76,4 @@ MonoBehaviour:
   localPlayerIdList: []
   localQualitiesList: 
   localCloudAnchorIdList: []
+  myPlayerId: 

@@ -13,13 +13,12 @@ GameObject:
   - component: {fileID: 2519652253921613801}
   - component: {fileID: 2519652253921613802}
   - component: {fileID: 2519652253921613805}
-  - component: {fileID: 5119846011475213862}
+  - component: {fileID: 8599111478755667963}
   - component: {fileID: 4627520326701346142}
-  - component: {fileID: 3182732939022089344}
   - component: {fileID: 5149230998547989109}
   m_Layer: 0
   m_Name: ARCubeBolt
-  m_TagString: Untagged
+  m_TagString: ARCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +117,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5119846011475213862
+--- !u!114 &8599111478755667963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,14 +126,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2519652253921613803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf711503e62671049bbbcba0b138592d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8499c548aaac343a68962991f1ea03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   arCubeMaterial:
   - {fileID: 2100000, guid: aefe01c8fec21c14b91bfe2b81fd6c8a, type: 2}
   - {fileID: 2100000, guid: 7b565b5add381ee45b035b89477b2524, type: 2}
-  smallCube: {fileID: 1382912391640834397, guid: 9d24fc21ab7fdc044b5f72e5d5d02eea,
-    type: 3}
+  colliding: {fileID: 0}
 --- !u!64 &4627520326701346142
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -149,18 +147,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8224007185199874504, guid: 2d421ff9222314288b0c580d4af8959c, type: 3}
---- !u!114 &3182732939022089344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2519652253921613803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ce335b12c2fa0041a11745b72126104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5149230998547989109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneGuid: 
-  _serializerGuid: 0d7c8ea3-38ad-4bfd-adbb-a091767cdd49
+  _serializerGuid: 0aa7013b-8224-4a24-8e43-76868fcae13f
   _prefabId: 1
   _updateRate: 1
   _autoFreezeProxyFrames: 0

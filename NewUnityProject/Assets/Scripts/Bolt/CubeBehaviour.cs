@@ -5,20 +5,19 @@ using Bolt;
 
 public class CubeBehaviour : Bolt.EntityBehaviour<ICubeState>
 {
+    
+
     public override void Attached()
     {
         state.SetTransforms(state.CubeTransform, transform);
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    private void Awake() {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void AdjustOffset(Transform inputTransform)
     {
-        
+
     }
 }

@@ -42,6 +42,7 @@
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\UIIconBehavior.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Util Tools\ManoUtils.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Scripts\ApplicationManager.cs" />
+     <Compile Include="Assets\Scripts\Bolt\CubeBehaviour.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\TrackingInfo.cs" />
      <Compile Include="Assets\Scripts\Bolt\CloudAnchorsMetaManager.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\ManoLicense.cs" />
      <Compile Include="Assets\Scripts\Bolt\NetworkCallbacks.cs" />
      <Compile Include="Assets\Samples\ARCore Extensions\1.22.0\Cloud Anchor Sample\Scripts\LocalPlayerController.cs" />
+     <Compile Include="Assets\Scripts\Bolt\ARCubeInteractionBolt.cs" />
      <Compile Include="Assets\Manomotion\Scripts\MainMenu\MenuButton.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Instructions\GestureInstruction.cs" />
      <Compile Include="Assets\Manomotion\UIBlurEffect\Scripts\Grayscale.cs" />
@@ -86,8 +88,10 @@
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\InputManagerPhoneCamera.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\ManomotionManager.cs" />
+     <Compile Include="Assets\Scripts\Bolt\HandColliderBolt.cs" />
      <Compile Include="Assets\ManoMotion ARFoundation\Scripts\ExampleDetectionCanvas.cs" />
      <Compile Include="Assets\Manomotion\ApplicationIntro\Scripts\InstructionManoVisualization.cs" />
+     <Compile Include="Assets\Scripts\Bolt\WorldOriginBigWrapManager.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\CubeGameManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\Manomotion\Scripts\Data Structure\ManoMotionFrame.cs" />
@@ -149,7 +153,8 @@
      <Compile Include="Assets\Scripts\ARTapToCreate.cs" />
      <Compile Include="Assets\Scripts\Extensions\BlockUIExtensions.cs" />
      <Compile Include="Assets\Manomotion\Examples\Blocks\Scripts\SpawnPoint.cs" />
-     <Compile Include="Assets\Scripts\Bolt\CubeBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Bolt\ARCubeInteractionBoltOld.cs" />
+     <Compile Include="Assets\Scripts\Bolt\BigWrapNetworkCallbacks.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

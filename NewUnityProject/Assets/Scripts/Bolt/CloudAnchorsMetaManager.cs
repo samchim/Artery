@@ -16,7 +16,9 @@ public class CloudAnchorsMetaManager : GlobalEventListener
     private int NUM_OF_ANCHOR = 0;
     private int NUM_OF_MAX_PLAYER = 4;
     private int numOfPlayer = 0;
+    private int nextId = 1;
     private int i;
+    public string myPlayerId;
 
     private ARCloudAnchorManagerBolt _arCloudAnchorManager = null;
 
@@ -41,7 +43,9 @@ public class CloudAnchorsMetaManager : GlobalEventListener
     public void SendJoin(int quality)
     {
         JoinEvent join = JoinEvent.Create();
-        string id = "P" + (numOfPlayer + 1);
+        string id = "P" + (nextId);
+        nextId += 1;
+        myPlayerId = id;
         join.Index = numOfPlayer;
         join.PlayerID = id;
         join.Quality = quality;

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6451571561067624638}
   - component: {fileID: 7699304039254998339}
   - component: {fileID: 4081016053669582488}
-  - component: {fileID: 2899556351951050562}
   - component: {fileID: 1277245269607594999}
+  - component: {fileID: 6177682647457823454}
   m_Layer: 0
   m_Name: HandColliderBolt
   m_TagString: Player
@@ -114,24 +114,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5900839525179497917}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2899556351951050562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5900839525179497917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfe6bf9dece3e204c8260938154525f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smoothingFrame: 0
-  movingAverage: 0
-  linearWeightedMovingAverage: 0
-  currentPosition: {x: 0, y: 0, z: 0}
-  smoothedPostion: {x: 0, y: 0, z: 0}
-  manomotionManager: {fileID: 0}
 --- !u!114 &1277245269607594999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneGuid: 
-  _serializerGuid: 0d7c8ea3-38ad-4bfd-adbb-a091767cdd49
-  _prefabId: 4
+  _serializerGuid: c61ae803-0e6f-45c6-84c8-8527cf81fc6b
+  _prefabId: 6
   _updateRate: 1
   _autoFreezeProxyFrames: 0
   _clientPredicted: 1
@@ -161,3 +143,27 @@ MonoBehaviour:
   _entityBehaviourQueryOption: 0
   _entityPriorityCalculatorQueryOption: 1
   _entityReplicationFilterQueryOption: 1
+--- !u!114 &6177682647457823454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900839525179497917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f008009fadfc7949a878111d95c0070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothingFrame: 12
+  movingAverage: 1
+  linearWeightedMovingAverage: 0
+  currentScenePosition: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 0, y: 0, z: 0}
+  smoothedPostion: {x: 0, y: 0, z: 0}
+  _manomotionManager: {fileID: 0}
+  grabTriggering: 0
+  pinching: 0
+  worldOrigin: {fileID: 0}
+  worldOriginOffsetPosition: {x: 0, y: 0, z: 0}
+  worldOriginOffsetRotaion: {x: 0, y: 0, z: 0, w: 0}

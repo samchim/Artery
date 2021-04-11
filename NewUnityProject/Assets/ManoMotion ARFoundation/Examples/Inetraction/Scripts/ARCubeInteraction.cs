@@ -21,6 +21,8 @@ public class ARCubeInteraction : MonoBehaviour
     private string handTag = "Player";
     private Renderer cubeRenderer;
 
+    private GameObject defaultParent;
+
     void Start()
     {
         Initialize();
@@ -38,15 +40,16 @@ public class ARCubeInteraction : MonoBehaviour
         cubeRenderer.material = arCubeMaterial[0];
         handCollider = GameObject.FindGameObjectsWithTag("Player")[0];
         actionCoolDown = 0;
+        defaultParent = transform.parent.gameObject;
         FreeFall();
     }
 
     void Update()
     {
         Debug.Log("Gravity: " + gameObject.GetComponent<Rigidbody>().useGravity.ToString() + ", Kinematic :" + gameObject.GetComponent<Rigidbody>().isKinematic.ToString());
-        if (transform.parent == null)
+        if (transform.parent == defaultParent)
         {
-            Debug.Log("transform.parent: Null");
+            Debug.Log("transform.parent: defaultParent");
         }
         else
         {
@@ -74,7 +77,7 @@ public class ARCubeInteraction : MonoBehaviour
             if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_gesture_trigger == grabTrigger && actionCoolDown == 0)
             {
                 Debug.Log("Action: grabTrigger");
-                if (transform.parent == null)
+                if (transform.parent == defaultParent)
                 {
                     Debug.Log("Action: stick with hand");
                     transform.parent = handCollider.transform;
@@ -117,7 +120,7 @@ public class ARCubeInteraction : MonoBehaviour
     /// </summary>
     private void FreeFall()
     {
-        transform.parent = null;
+        transform.parent = defaultParent.transform;
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 

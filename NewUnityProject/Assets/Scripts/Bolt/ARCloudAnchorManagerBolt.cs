@@ -40,15 +40,16 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     private int numOfCloudAnchor;
 
     private GameObject[] _arPlanes;
-    private GameObject worldOrigin = null;
     private float px, py, pz, qx, qy, qz, qw = 0;
-    private GameObject worldOriginTmp;
+    private Vector3 worldOriginPostion = new Vector3(0,0,0);
+    private Quaternion worldOriginRotation = new Quaternion(0,0,0,0);
 
     private ARAnchorManager _arAnchorManager = null;
     private ARPlacementManagerBolt _arPlacementManager = null;
     private ARDebugManager _arDebugManager = null;
     private CloudAnchorsMetaManager _arCloudAnchorsMetaManger = null;
     private ARPlaneManager _arPlaneManger = null;
+    private WorldOriginBigWrapManager _worldOriginBigWrapManager = null;
 
     private void Awake()
     {
@@ -56,6 +57,7 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         _arDebugManager = GetComponent<ARDebugManager>();
         _arCloudAnchorsMetaManger = GetComponent<CloudAnchorsMetaManager>();
         _arPlaneManger = GetComponent<ARPlaneManager>();
+        _worldOriginBigWrapManager = GetComponent<WorldOriginBigWrapManager>();
 
         resolver = new UnityEvent<Transform, int>();
         resolver.AddListener((t, i) => _arPlacementManager.ReCreatePlacement(t, i));
@@ -66,7 +68,16 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
             anchorToResolveList.Add(null);
             cloudAnchorList.Add(null);
         }
-        worldOrigin = new GameObject();
+
+        // FeatureMapQuality quality = _arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
+        // if (quality != 0)
+        // {
+        //     _arCloudAnchorsMetaManger.SendJoin((int)quality);
+        // } else
+        // {
+        //     _arCloudAnchorsMetaManger.SendJoin(0);
+        // }
+        // _arCloudAnchorsMetaManger.SendJoin(1);
     }
 
     private Pose GetCameraPose()
@@ -92,7 +103,6 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     public void StartHostAnchor()
     {
         _arDebugManager.LogInfo($"Start Host Anchor, numOfQueued = {numOfQueued}");
-        FeatureMapQuality quality = _arAnchorManager.EstimateFeatureMapQualityForHosting(GetCameraPose());
         for (i = 0; i < numOfQueued; i++)
         {
             anchorToResolveList[i] = null;
@@ -272,6 +282,7 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
             ARPlane.SetActive(false);
         }
         _arPlacementManager.DeactivatePlacement();
+        _arDebugManager.LogInfo($"StartGame");
     }
 
     private int NumOfCloudAnchor()
@@ -291,11 +302,6 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     private void AverageWorldOrigin()
     {
         _arDebugManager.LogInfo($"AverageWorldOrigin()");
-        if (worldOrigin != new GameObject())
-        {
-            Destroy(worldOrigin);
-            worldOrigin = new GameObject();
-        }
         px = 0;
         py = 0;
         pz = 0;
@@ -320,13 +326,21 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
             }
         }
 
-        Vector3 worldOriginPostion = new Vector3(px / (float)numOfCloudAnchor, py / (float)numOfCloudAnchor, pz / (float)numOfCloudAnchor);
-        Quaternion worldOriginRotation = new Quaternion(qx / (float)numOfCloudAnchor, qy / (float)numOfCloudAnchor, qz / (float)numOfCloudAnchor, qw / (float)numOfCloudAnchor);
+        // worldOriginPostion = new Vector3(px / (float)numOfCloudAnchor, py / (float)numOfCloudAnchor, pz / (float)numOfCloudAnchor);
+        worldOriginPostion.x = px / (float)numOfCloudAnchor;
+        worldOriginPostion.y = py / (float)numOfCloudAnchor;
+        worldOriginPostion.z = pz / (float)numOfCloudAnchor;
+        // worldOriginRotation = new Quaternion(qx / (float)numOfCloudAnchor, qy / (float)numOfCloudAnchor, qz / (float)numOfCloudAnchor, qw / (float)numOfCloudAnchor);
+        worldOriginRotation.x = qx / (float)numOfCloudAnchor;
+        worldOriginRotation.y = qy / (float)numOfCloudAnchor;
+        worldOriginRotation.z = qz / (float)numOfCloudAnchor;
+        worldOriginRotation.w = qw / (float)numOfCloudAnchor;
         _arDebugManager.LogInfo($"Position: {worldOriginPostion.ToString()}");
         _arDebugManager.LogInfo($"Rotation: {worldOriginRotation.ToString()}");
-        worldOrigin = Instantiate(worldOriginPrefab) as GameObject;
-        worldOrigin.transform.position = worldOriginPostion;
-        worldOrigin.transform.rotation = worldOriginRotation;
+        // worldOrigin = Instantiate(worldOriginPrefab) as GameObject;
+        // worldOrigin.transform.position = worldOriginPostion;
+        // worldOrigin.transform.rotation = worldOriginRotation;
+        _worldOriginBigWrapManager.ConnectBW2WO(worldOriginPostion, worldOriginRotation);
     }
 
     #endregion

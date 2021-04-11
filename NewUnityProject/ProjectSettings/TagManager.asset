@@ -11,6 +11,9 @@ TagManager:
   - particle
   - CloudAnchorsMetaBolt
   - WorldOrigin
+  - BigWrap
+  - ManomotionManager
+  - ARCube
   layers:
   - Default
   - TransparentFX
