@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Bolt;
 
-public class WorldOriginBigWrapManager : GlobalEventListener 
+public class WorldOriginBigWrapManager : GlobalEventListener
 {
-    
+
     // private GameObject worldOriginPrefab = null;
     [SerializeField]
     private GameObject worldOrigin = null;
@@ -29,12 +29,16 @@ public class WorldOriginBigWrapManager : GlobalEventListener
 
     private int i;
 
-    private void Start() {
+    private ARDebugManager _arDebugManager;
 
+    private void Start()
+    {
+        _arDebugManager = gameObject.GetComponent<ARDebugManager>();
     }
 
-    private void Update() {
-        
+    private void Update()
+    {
+
     }
 
     public void ConnectBW2WO(Vector3 inputPosition, Quaternion inputRotation)
@@ -49,36 +53,52 @@ public class WorldOriginBigWrapManager : GlobalEventListener
         bigWrap = GameObject.FindGameObjectWithTag("BigWrap");
         if (bigWrap == null)
         {
-            bigWrap = BoltNetwork.Instantiate(bigWrapPrefab, new Vector3(0, 0 , 0), new Quaternion(0, 0, 0, 0));
+            bigWrap = BoltNetwork.Instantiate(
+                bigWrapPrefab, 
+                inputPosition,
+                inputRotation
+            );
         }
         bigWrap.transform.parent = worldOrigin.transform;
-        bigWrap.transform.position = new Vector3(0, 0 , 0);
-        bigWrap.transform.rotation = new Quaternion(0, 0, 0, 0);
 
         arCubeList = GameObject.FindGameObjectsWithTag("ARCube");
         for (i = 0; i < arCubeList.Length; i++)
         {
+            // arCubeList[i].transform.position = arCubeList[i].GetComponent<ARCubeInteractionBolt>().state.ARCubeTransform.Position;
+            // arCubeList[i].transform.rotation = arCubeList[i].GetComponent<ARCubeInteractionBolt>().state.ARCubeTransform.Rotation;
             arCubeList[i].transform.parent = bigWrap.transform;
         }
         gameBase = GameObject.FindGameObjectWithTag("GameBase");
+        gameBase.transform.position = inputPosition;
+        gameBase.transform.rotation = inputRotation;
         gameBase.transform.parent = bigWrap.transform;
+        bigWrap.transform.position = inputPosition;
+        bigWrap.transform.rotation = inputRotation;
+        bigWrap.transform.parent = worldOrigin.transform;
 
-        handColliderList = GameObject.FindGameObjectsWithTag("Player");
         if (myHandCollider == null)
         {
-            myHandCollider = BoltNetwork.Instantiate(handColliderPrefab, new Vector3(0, 10 , 0), new Quaternion(0, 0, 0, 0));
+            myHandCollider = BoltNetwork.Instantiate(handColliderPrefab, new Vector3(0, 10, 0), new Quaternion(0, 0, 0, 0));
             myHandCollider.transform.parent = worldOrigin.transform;
         }
         SendConnectEvent();
     }
 
     public override void OnEvent(ConnectEvent evnt)
-    {   
-        for (i = 0; i < handColliderList.Length; i++){
+    {
+        _arDebugManager.LogInfo($"ConnectEvent is receviced");
+        StartCoroutine(setCollidersParent());
+    }
+
+    IEnumerator setCollidersParent()
+    {
+        yield return new WaitForSeconds(0.5f);
+        handColliderList = GameObject.FindGameObjectsWithTag("Player");
+        for (i = 0; i < handColliderList.Length; i++)
+        {
             handColliderList[i].transform.parent = worldOrigin.transform;
         }
     }
-
 
     public void SendConnectEvent()
     {

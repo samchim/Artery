@@ -4,6 +4,7 @@ using UnityEngine;
 using Google.XR.ARCoreExtensions;
 using UnityEngine.Events;
 using UnityEngine.XR.ARFoundation;
+using System;
 
 public class ARCloudAnchorManagerBolt : MonoBehaviour
 {
@@ -40,9 +41,8 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
     private int numOfCloudAnchor;
 
     private GameObject[] _arPlanes;
-    private float px, py, pz, qx, qy, qz, qw = 0;
-    private Vector3 worldOriginPostion = new Vector3(0,0,0);
-    private Quaternion worldOriginRotation = new Quaternion(0,0,0,0);
+    private Vector3 worldOriginPostion = new Vector3(0, 0, 0);
+    private Quaternion worldOriginRotation = new Quaternion(0, 0, 0, 0);
 
     private ARAnchorManager _arAnchorManager = null;
     private ARPlacementManagerBolt _arPlacementManager = null;
@@ -95,7 +95,7 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
 
     public void QueueAnchor(ARAnchor arAnchor)
     {
-        _arDebugManager.LogInfo($"new Anchor placed #{numOfQueued+1}");
+        _arDebugManager.LogInfo($"new Anchor placed #{numOfQueued + 1}");
         pendingHostAnchorList[numOfQueued] = arAnchor;
         numOfQueued++;
     }
@@ -278,7 +278,8 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         AverageWorldOrigin();
         _arPlaneManger.enabled = false;
         _arPlanes = GameObject.FindGameObjectsWithTag("ARPlane");
-        foreach (GameObject ARPlane in _arPlanes) {
+        foreach (GameObject ARPlane in _arPlanes)
+        {
             ARPlane.SetActive(false);
         }
         _arPlacementManager.DeactivatePlacement();
@@ -299,12 +300,15 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         return n;
     }
 
+    private float px, py, pz, qx, qy, qz, qw = 0;
+    private Vector4 cumulative;
     private void AverageWorldOrigin()
     {
         _arDebugManager.LogInfo($"AverageWorldOrigin()");
         px = 0;
         py = 0;
         pz = 0;
+
         qx = 0;
         qy = 0;
         qz = 0;
@@ -318,11 +322,20 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
                 px += cloudAnchorList[i].transform.position.x;
                 py += cloudAnchorList[i].transform.position.y;
                 pz += cloudAnchorList[i].transform.position.z;
-                qx += cloudAnchorList[i].transform.rotation.x;
-                qy += cloudAnchorList[i].transform.rotation.y;
-                qz += cloudAnchorList[i].transform.rotation.z;
-                qw += cloudAnchorList[i].transform.rotation.w;
-                _arDebugManager.LogInfo($"{px}, {py}, {pz}, {qx}, {qy}, {qz}, {qw}");
+
+                // qx += cloudAnchorList[i].transform.rotation.x;
+                // qy += cloudAnchorList[i].transform.rotation.y;
+                // qz += cloudAnchorList[i].transform.rotation.z;
+                // qw += cloudAnchorList[i].transform.rotation.w;
+                if (i == 0)
+                {
+                    worldOriginRotation = cloudAnchorList[i].transform.rotation;
+                }
+                else
+                {
+                    worldOriginRotation = AverageQuaternion(ref cumulative, cloudAnchorList[i].transform.rotation, cloudAnchorList[0].transform.rotation, i);
+                }
+                // _arDebugManager.LogInfo($"{px}, {py}, {pz}, {qx}, {qy}, {qz}, {qw}");
             }
         }
 
@@ -331,10 +344,10 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         worldOriginPostion.y = py / (float)numOfCloudAnchor;
         worldOriginPostion.z = pz / (float)numOfCloudAnchor;
         // worldOriginRotation = new Quaternion(qx / (float)numOfCloudAnchor, qy / (float)numOfCloudAnchor, qz / (float)numOfCloudAnchor, qw / (float)numOfCloudAnchor);
-        worldOriginRotation.x = qx / (float)numOfCloudAnchor;
-        worldOriginRotation.y = qy / (float)numOfCloudAnchor;
-        worldOriginRotation.z = qz / (float)numOfCloudAnchor;
-        worldOriginRotation.w = qw / (float)numOfCloudAnchor;
+        // worldOriginRotation.x = qx / (float)numOfCloudAnchor;
+        // worldOriginRotation.y = qy / (float)numOfCloudAnchor;
+        // worldOriginRotation.z = qz / (float)numOfCloudAnchor;
+        // worldOriginRotation.w = qw / (float)numOfCloudAnchor;
         _arDebugManager.LogInfo($"Position: {worldOriginPostion.ToString()}");
         _arDebugManager.LogInfo($"Rotation: {worldOriginRotation.ToString()}");
         // worldOrigin = Instantiate(worldOriginPrefab) as GameObject;
@@ -367,6 +380,81 @@ public class ARCloudAnchorManagerBolt : MonoBehaviour
         else
         {
             safeToResolvePassed -= Time.deltaTime * 1.0f;
+        }
+    }
+
+
+
+    //////////////////////////////////////////
+
+    //Get an average (mean) from more then two quaternions (with two, slerp would be used).
+    //Note: this only works if all the quaternions are relatively close together.
+    //Usage: 
+    //-Cumulative is an external Vector4 which holds all the added x y z and w components.
+    //-newRotation is the next rotation to be added to the average pool
+    //-firstRotation is the first quaternion of the array to be averaged
+    //-addAmount holds the total amount of quaternions which are currently added
+    //This function returns the current average quaternion
+    public static Quaternion AverageQuaternion(ref Vector4 cumulative, Quaternion newRotation, Quaternion firstRotation, int addAmount)
+    {
+
+        float w = 0.0f;
+        float x = 0.0f;
+        float y = 0.0f;
+        float z = 0.0f;
+
+        //Before we add the new rotation to the average (mean), we have to check whether the quaternion has to be inverted. Because
+        //q and -q are the same rotation, but cannot be averaged, we have to make sure they are all the same.
+        if (!AreQuaternionsClose(newRotation, firstRotation))
+        {
+            newRotation = InverseSignQuaternion(newRotation);
+        }
+
+        //Average the values
+        float addDet = 1f / (float)addAmount;
+        cumulative.w += newRotation.w;
+        w = cumulative.w * addDet;
+        cumulative.x += newRotation.x;
+        x = cumulative.x * addDet;
+        cumulative.y += newRotation.y;
+        y = cumulative.y * addDet;
+        cumulative.z += newRotation.z;
+        z = cumulative.z * addDet;
+
+        //note: if speed is an issue, you can skip the normalization step
+        return NormalizeQuaternion(x, y, z, w);
+    }
+
+    public static Quaternion NormalizeQuaternion(float x, float y, float z, float w)
+    {
+        float lengthD = 1.0f / (w * w + x * x + y * y + z * z);
+        w *= lengthD;
+        x *= lengthD;
+        y *= lengthD;
+        z *= lengthD;
+        return new Quaternion(x, y, z, w);
+    }
+
+    //Changes the sign of the quaternion components. This is not the same as the inverse.
+    public static Quaternion InverseSignQuaternion(Quaternion q)
+    {
+        return new Quaternion(-q.x, -q.y, -q.z, -q.w);
+    }
+
+    //Returns true if the two input quaternions are close to each other. This can
+    //be used to check whether or not one of two quaternions which are supposed to
+    //be very similar but has its component signs reversed (q has the same rotation as
+    //-q)
+    public static bool AreQuaternionsClose(Quaternion q1, Quaternion q2)
+    {
+        float dot = Quaternion.Dot(q1, q2);
+        if (dot < 0.0f)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 

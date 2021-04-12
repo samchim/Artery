@@ -16,7 +16,7 @@ public class CubeBehaviour : Bolt.EntityBehaviour<ICubeState>
         
     }
     
-    public void AdjustOffset(Transform inputTransform)
+    public void Start()
     {
 
     }

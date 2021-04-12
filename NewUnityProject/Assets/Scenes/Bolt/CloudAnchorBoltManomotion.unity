@@ -2580,10 +2580,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472814124a5881c45bfe35d99651ae26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPlayerIdIndex: 0
   localPlayerIdList: []
   localQualitiesList: 
   localCloudAnchorIdList: []
+  myPlayerId: 
 --- !u!114 &1437115809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2638,7 +2638,7 @@ MonoBehaviour:
     type: 3}
   handColliderPrefab: {fileID: 5900839525179497917, guid: 0647a41646e22be419ca63603575016a,
     type: 3}
-  worldOriginPosition: {x: 0, y: 0, z: 0}
+  worldOriginPosition: {x: 0, y: 0, z: 40}
   worldOriginRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1437115812
 MonoBehaviour:

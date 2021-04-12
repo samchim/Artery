@@ -199,9 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb092e07aff13e346943046883f160c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arCubePrefab: {fileID: 2519652253921613803, guid: 1536a9829a131284eb529d009e425bcc,
-    type: 3}
   gameBasePrefab: {fileID: 2869310513509081527, guid: b7a635afeac7345449b843f8589d646d,
+    type: 3}
+  arCubePrefab: {fileID: 2519652253921613803, guid: 1536a9829a131284eb529d009e425bcc,
     type: 3}
 --- !u!1 &6876197036890960769
 GameObject:
