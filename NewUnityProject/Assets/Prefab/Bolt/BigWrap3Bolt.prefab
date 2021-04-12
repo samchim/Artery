@@ -106,8 +106,9 @@ GameObject:
   - component: {fileID: 7321864873696188551}
   - component: {fileID: 2876297323127688507}
   - component: {fileID: 4142121457578207591}
-  - component: {fileID: 6269245647113407789}
   - component: {fileID: 8249147274521883636}
+  - component: {fileID: 4194684281117809457}
+  - component: {fileID: 8326143341109925971}
   m_Layer: 0
   m_Name: BigWrap3Bolt
   m_TagString: BigWrap
@@ -171,22 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce335b12c2fa0041a11745b72126104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6269245647113407789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2731372703426947964}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42de1d1d193de8a4087afcb9177fb925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winningConditionSecond: 3
-  hotZoneTrigger: {fileID: 0}
-  handCollider: {fileID: 0}
-  winningCountDownDisplay: {fileID: 10739160612235475}
 --- !u!114 &8249147274521883636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +188,34 @@ MonoBehaviour:
     type: 3}
   arCubePrefab: {fileID: 2519652253921613803, guid: 1536a9829a131284eb529d009e425bcc,
     type: 3}
+--- !u!114 &4194684281117809457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731372703426947964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722ea5a13a8a4b949a3465923aeed418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotZoneTrigger: {fileID: 0}
+  handColliderList: []
+--- !u!114 &8326143341109925971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731372703426947964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2383c80a0c2988e46962ec078f3e4ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winningConditionSecond: 3
+  winningCountDownDisplay: {fileID: 10739160612235475}
 --- !u!1 &6876197036890960769
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8449246225837625084
 RectTransform:
   m_ObjectHideFlags: 0

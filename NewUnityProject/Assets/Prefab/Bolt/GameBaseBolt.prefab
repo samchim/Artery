@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 7964988907782201708}
   m_Layer: 0
   m_Name: HotZoneCubeTrigger
-  m_TagString: GameBase
+  m_TagString: HotZoneTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

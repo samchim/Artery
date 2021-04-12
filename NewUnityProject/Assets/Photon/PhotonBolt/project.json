@@ -684,7 +684,6 @@
           },
           "AssetSettings": {
             "$type": "Bolt.Compiler.PropertyStateSettings, bolt.compiler",
-            "SmoothingAlgorithm": 1,
             "ExtrapolationErrorTolerance": 0.25,
             "_ExtrapolationCorrectionFrames": 6,
             "ExtrapolationMaxFrames": 9,
@@ -796,6 +795,20 @@
       },
       "Name": "ARCubeState",
       "Guid": "0aa7013b-8224-4a24-8e43-76868fcae13f",
+      "Groups": []
+    },
+    {
+      "$type": "Bolt.Compiler.EventDefinition, bolt.compiler",
+      "Properties": [],
+      "Name": "StartWinningCountDownEvent",
+      "Guid": "d5b10ec7-cea0-4b10-b61d-0b85fb4d52dd",
+      "Groups": []
+    },
+    {
+      "$type": "Bolt.Compiler.EventDefinition, bolt.compiler",
+      "Properties": [],
+      "Name": "StopWinningCountDownEvent",
+      "Guid": "08f128c3-4901-4b8e-ad31-e92300ac1a8b",
       "Groups": []
     }
   ],
